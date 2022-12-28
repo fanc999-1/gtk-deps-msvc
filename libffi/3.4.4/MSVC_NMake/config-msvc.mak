@@ -2,6 +2,8 @@
 
 !include detectenv-msvc.mak
 
+LIBFFI_VERSION = 3.4.4
+
 !if "$(PLAT)" == "arm64"
 MASM = armasm64
 MASM_ARGS = -g -o
