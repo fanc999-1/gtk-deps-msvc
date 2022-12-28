@@ -27,7 +27,7 @@ UNIX2DOS = unix2dos
 
 # Please do not change anything beneath this line unless maintaining the NMake Makefiles
 ARCH_SRCDIR = ..\src\$(ARCH_FAMILY)
-LIBFFI_INCLUDES = /I.\msvc-conf\include /I..\include /I.\msvc-conf
+LIBFFI_INCLUDES = /I.\msvc-conf\include /Ivs$(VSVER)\$(CFG)\$(PLAT)\libffi /I..\include /I.\msvc-conf
 LIBFFI_CFLAGS = $(CFLAGS) /DWIN32 /DUSE_DL_PREFIX /DFFI_BUILDING_DLL
 LIBFFI_DLL_SUFFIX = -7
 

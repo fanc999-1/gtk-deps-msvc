@@ -8,6 +8,7 @@ install: all
 	@copy /b $(LIBFFI_DLL) $(PREFIX)\bin
 	@copy /b $(LIBFFI_DLL:.dll=.pdb) $(PREFIX)\bin
 	@copy /b $(LIBFFI_LIB) $(PREFIX)\lib
-	@copy .\msvc-conf\include\*.h $(PREFIX)\include
+	@copy .\msvc-conf\include\ffi.h $(PREFIX)\include
+	@copy vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h $(PREFIX)\include
 	@for %f in (..\LICENSE ..\README.md ..\doc\libffi.pdf) do copy /b %f $(PREFIX)
 	@-for %f in (LICENSE README.md) do $(UNIX2DOS) $(PREFIX)\%f

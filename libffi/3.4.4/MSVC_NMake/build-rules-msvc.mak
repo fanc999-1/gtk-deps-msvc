@@ -13,21 +13,24 @@
 # 	$(CC)|$(CXX) $(cflags) /Fo$(destdir) /c @<<
 # $<
 # <<
+
+vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h: ..\src\$(ARCH_FAMILY)\ffitarget.h
+	@if not exist $(@D)\ mkdir $(@D)
+	@echo Copying $(@F) from $**...
+	@copy $** $@
+
 {..\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libffi\}.obj::
-	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ mkdir vs$(VSVER)\$(CFG)\$(PLAT)\libffi
 	$(CC) $(LIBFFI_CFLAGS) $(LIBFFI_INCLUDES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libffi\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libffi\ /c @<<
 $<
 <<
 
 {$(ARCH_SRCDIR)\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libffi\}.obj::
-	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ mkdir vs$(VSVER)\$(CFG)\$(PLAT)\libffi
 	$(CC) $(LIBFFI_CFLAGS) $(LIBFFI_INCLUDES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libffi\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libffi\ /c @<<
 $<
 <<
 
-vs$(VSVER)\$(CFG)\$(PLAT)\libffi\plat_asm.asm: $(PLAT_ASM_SRC)
-	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ mkdir vs$(VSVER)\$(CFG)\$(PLAT)\libffi
-	$(CPP) /EP $(LIBFFI_CFLAGS) $(LIBFFI_INCLUDES) $**>$@
+vs$(VSVER)\$(CFG)\$(PLAT)\libffi\plat_asm.asm: vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h $(PLAT_ASM_SRC)
+	$(CPP) /EP $(LIBFFI_CFLAGS) $(LIBFFI_INCLUDES) $(PLAT_ASM_SRC)>$@
 
 vs$(VSVER)\$(CFG)\$(PLAT)\libffi\plat_asm.obj: vs$(VSVER)\$(CFG)\$(PLAT)\libffi\plat_asm.asm
 	$(MASM) $(MASM_ARGS) $@ $** $(MASM_EXTRA_ARGS)
@@ -65,4 +68,5 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\libffi\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\libffi\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\libffi\*.asm
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h
 	@-rd vs$(VSVER)\$(CFG)\$(PLAT)\libffi

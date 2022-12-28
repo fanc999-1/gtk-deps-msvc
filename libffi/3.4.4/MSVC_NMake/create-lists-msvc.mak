@@ -50,6 +50,12 @@ NULL=
 !if [call create-lists.bat footer libffi-vs$(VSVER)-$(PLAT).mak]
 !endif
 
+!if [for %c in (..\src\*.c) do @echo vs^$(VSVER)\^$(CFG)\^$(PLAT)\libffi\%~nc.obj: vs^$(VSVER)\^$(CFG)\^$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h>>libffi-vs$(VSVER)-$(PLAT).mak]
+!endif
+
+!if [for %c in ($(ARCH_SRCDIR)\*.c) do @echo vs^$(VSVER)\^$(CFG)\^$(PLAT)\libffi\%~nc.obj: vs^$(VSVER)\^$(CFG)\^$(PLAT)\libffi\ffitarget-$(ARCH_FAMILY).h>>libffi-vs$(VSVER)-$(PLAT).mak]
+!endif
+
 !include libffi-vs$(VSVER)-$(PLAT).mak
 
 !if [del /f /q libffi-vs$(VSVER)-$(PLAT).mak]
