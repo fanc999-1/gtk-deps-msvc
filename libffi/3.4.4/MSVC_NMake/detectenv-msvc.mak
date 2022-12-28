@@ -1,48 +1,16 @@
 # Change this (or specify PREFIX= when invoking this NMake Makefile) if
-# necessary, so that the libs and headers of the dependent third-party
-# libraries can be located.  For instance, if building from GLib's
-# included Visual Studio projects, this should be able to locate the GLib
-# build out-of-the-box if they were not moved.  GLib's headers will be
-# found in $(GLIB_PREFIX)\include\glib-2.0 and
-# $(GLIB_PREFIX)\lib\glib-2.0\include and its import library will be found
-# in $(GLIB_PREFIX)\lib.
+# necessary, so that the results of the build will be copied to its
+# appropriate subdirectories upon 'install'.
 
 !if "$(PREFIX)" == ""
 PREFIX = ..\..\vs$(VSVER)\$(PLAT)
 !endif
 
-# Location of the PERL interpreter, for running glib-mkenums.  glib-mkenums
-# needs to be found in $(PREFIX)\bin.  Using either a 32-bit or x64 PERL
-# interpreter are supported for either a 32-bit or x64 build.
-
-!if "$(PERL)" == ""
-PERL = perl
-!endif
-
-# Location of the Python interpreter, for building introspection.  The complete set
-# of Python Modules for introspection (the giscanner Python scripts and the _giscanner.pyd
-# compiled module) needs to be found in $(PREFIX)\lib\gobject-introspection\giscanner, and
-# the g-ir-scanner Python script and g-ir-compiler utility program needs to be found
-# in $(PREFIX)\bin, together with any DLLs they will depend on, if those DLLs are not already
-# in your PATH.
-# Note that the Python interpreter and the introspection modules and utility progam must
-# correspond to the build type (i.e. 32-bit Release for 32-bit Release builds, and so on).
-#
-# For introspection, currently only Python 2.7.x is supported.  This may change when Python 3.x
-# support is added upstream in gobject-introspection--when this happens, the _giscanner.pyd must
-# be the one that is built against the release series of Python that is used here.
+# Location of the Python interpreter, to help generate pkg-config files
+# for this package.
 
 !if "$(PYTHON)" == ""
 PYTHON = python
-!endif
-
-# Location of the pkg-config utility program, for building introspection.  It needs to be able
-# to find the pkg-config (.pc) files so that the correct libraries and headers for the needed libraries
-# can be located, using PKG_CONFIG_PATH.  Using either a 32-bit or x64 pkg-config are supported for
-# either a 32-bit or x64 build.
-
-!if "$(PKG_CONFIG)" == ""
-PKG_CONFIG = pkg-config
 !endif
 
 # The items below this line should not be changed, unless one is maintaining
@@ -112,7 +80,7 @@ VSVER = $(PDBVER)
 !if "$(VSVER)" == "0"
 MSG = ^
 This NMake Makefile set supports Visual Studio^
-9 (2008) through 16 (2019).  Your Visual Studio^
+9 (2008) through 17 (2022).  Your Visual Studio^
 version is not supported.
 !error $(MSG)
 !endif
@@ -125,19 +93,15 @@ VALID_CFGSET = TRUE
 # One may change these items, but be sure to test
 # the resulting binaries
 !if "$(CFG)" == "release" || "$(CFG)" == "Release"
-CFLAGS_ADD_NO_GL = /MD /O2 /MP
-CFLAGS_ADD = $(CFLAGS_ADD_NO_GL) /GL
+CFLAGS_ADD = /MD /O2 /MP /GL
 !if "$(VSVER)" != "9"
 CFLAGS_ADD = $(CFLAGS_ADD) /d2Zi+
-CFLAGS_ADD_NO_GL = $(CFLAGS_ADD_NO_GL) /d2Zi+
 !endif
 !if $(VSVER) >= 14
 CFLAGS_ADD = $(CFLAGS_ADD) /utf-8
-CFLAGS_ADD_NO_GL = $(CFLAGS_ADD_NO_GL) /utf-8
 !endif
 !else
 CFLAGS_ADD = /MDd /Od
-CFLAGS_ADD_NO_GL = $(CFLAGS_ADD)
 !endif
 
 !if "$(PLAT)" == "x64"
@@ -149,20 +113,14 @@ LDFLAGS_ARCH = /machine:x86
 !endif
 
 !if "$(VALID_CFGSET)" == "TRUE"
-CFLAGS_NOGL = $(CFLAGS_ADD_NO_GL) /W3 /Zi
 CFLAGS = $(CFLAGS_ADD) /W3 /Zi
-
 LDFLAGS_BASE = $(LDFLAGS_ARCH) /libpath:$(PREFIX)\lib /DEBUG
 
 !if "$(CFG)" == "debug" || "$(CFG)" == "Debug"
-ARFLAGS_NOLTCG = $(LDFLAGS_ARCH)
 ARFLAGS = $(LDFLAGS_ARCH)
-LDFLAGS_NOLTCG = $(LDFLAGS_BASE)
 LDFLAGS = $(LDFLAGS_BASE)
 !else
-ARFLAGS_NOLTCG = $(LDFLAGS_ARCH) /LTCG
-ARFLAGS = $(ARFLAGS_NOLTCG) /LTCG
-LDFLAGS_NOLTCG = $(LDFLAGS_BASE) /opt:ref
-LDFLAGS = $(LDFLAGS_NOLTCG) /LTCG
+ARFLAGS = $(LDFLAGS_ARCH) /LTCG
+LDFLAGS = $(LDFLAGS_BASE) /LTCG /opt:ref
 !endif
 !endif
