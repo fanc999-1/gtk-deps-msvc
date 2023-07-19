@@ -2557,7 +2557,11 @@
 
 /* Define to the prefix of C symbols at the assembler and linker level, either
    an underscore or empty. */
-#define USER_LABEL_PREFIX 
+#ifdef _WIN64
+# define USER_LABEL_PREFIX
+#else
+# define USER_LABEL_PREFIX _
+#endif
 
 /* Define to nonzero if you want access control list support. */
 #define USE_ACL 0
