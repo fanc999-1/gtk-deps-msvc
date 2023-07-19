@@ -98,7 +98,6 @@ trim2
 uc_is_java_whitespace
 uc_is_space
 uc_width
-ulc_width_linebreaks
 ulc_width_linebreaks_v2
 unicode_name_character
 unregister_temp_file

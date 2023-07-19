@@ -34,6 +34,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\gl_xlist.c	\
 	..\libtextstyle\lib\html-ostream.c	\
 	..\libtextstyle\lib\html-styled-ostream.c	\
+	..\libtextstyle\lib\ialloc.c	\
 	..\libtextstyle\lib\iconv-ostream.c	\
 	..\libtextstyle\lib\isatty.c	\
 	..\libtextstyle\lib\isinf.c	\
@@ -64,12 +65,12 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\safe-write.c	\
 	..\libtextstyle\lib\sig-handler.c	\
 	..\libtextstyle\lib\sigaction.c	\
-	..\libtextstyle\lib\sigprocmask.c	\
 	..\libtextstyle\lib\snprintf.c	\
+	..\libtextstyle\lib\sigprocmask.c	\
 	..\libtextstyle\lib\sockets.c	\
 	..\libtextstyle\lib\stat-time.c	\
-	..\libtextstyle\lib\stat-w32.c	\
 	..\libtextstyle\lib\stat.c	\
+	..\libtextstyle\lib\stat-w32.c	\
 	..\libtextstyle\lib\stpcpy.c	\
 	..\libtextstyle\lib\strerror-override.c	\
 	..\libtextstyle\lib\strerror.c	\
@@ -83,8 +84,8 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\unistd.c	\
 	..\libtextstyle\lib\vasnprintf.c	\
 	..\libtextstyle\lib\vasprintf.c	\
-	..\libtextstyle\lib\version.c	\
 	..\libtextstyle\lib\vsnprintf.c	\
+	..\libtextstyle\lib\version.c	\
 	..\libtextstyle\lib\windows-mutex.c	\
 	..\libtextstyle\lib\windows-once.c	\
 	..\libtextstyle\lib\windows-recmutex.c	\
@@ -97,7 +98,3 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\xmalloc.c	\
 	..\libtextstyle\lib\xsize.c	\
 	..\libtextstyle\lib\xvasprintf.c
-
-!if $(VSVER) > 14
-LIBTEXTSTYLE_BASE_SRCS = $(LIBTEXTSTYLE_BASE_SRCS) ..\libtextstyle\lib\frexpl.c
-!endif

@@ -4,10 +4,10 @@ GETTEXT_LIB_BASE_SRCS =	\
 	acl-internal.c	\
 	addext.c	\
 	allocator.c	\
+	asprintf.c	\
 	areadlink.c	\
 	argmatch.c	\
 	asnprintf.c	\
-	asprintf.c	\
 	asyncsafe-spin.c	\
 	backupfile.c	\
 	basename-lgpl.c	\
@@ -45,7 +45,6 @@ GETTEXT_LIB_BASE_SRCS =	\
 	error.c	\
 	execute.c	\
 	exitfail.c	\
-	explicit_bzero.c	\
 	fatal-signal.c	\
 	fchdir.c	\
 	fcntl.c	\
@@ -53,23 +52,26 @@ GETTEXT_LIB_BASE_SRCS =	\
 	fd-safer-flag.c	\
 	fd-safer.c	\
 	fdopen.c	\
+	fdopendir.c	\
 	file-set.c	\
 	filenamecat-lgpl.c	\
-	findprog.c	\
 	findprog-in.c	\
+	findprog.c	\
 	fnmatch.c	\
 	fopen.c	\
 	free.c	\
 	fstat.c	\
+	fstatat.c	\
 	fstrcmp.c	\
 	ftell.c	\
 	ftello.c	\
 	full-write.c	\
 	fwriteerror.c	\
+	gai_strerror.c	\
 	gcd.c	\
 	get-permissions.c	\
-	getcwd.c	\
 	getcwd-lgpl.c	\
+	getcwd.c	\
 	getdelim.c	\
 	getdtablesize.c	\
 	getline.c	\
@@ -88,6 +90,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	hash-triple-simple.c	\
 	hash.c	\
 	ialloc.c	\
+	inet_ntop.c	\
 	isinf.c	\
 	isnand.c	\
 	isnanf.c	\
@@ -112,8 +115,10 @@ GETTEXT_LIB_BASE_SRCS =	\
 	mbswidth.c	\
 	mbuiter.c	\
 	mem-hash-map.c	\
+	memmem.c	\
 	mempcpy.c	\
 	memrchr.c	\
+	memset_explicit.c	\
 	mkdir.c	\
 	mkdtemp.c	\
 	msvc-inval.c	\
@@ -121,14 +126,14 @@ GETTEXT_LIB_BASE_SRCS =	\
 	obstack.c	\
 	omp-init.c	\
 	open.c	\
-	openat.c	\
 	openat-die.c	\
 	openat-proc.c	\
+	openat.c	\
 	opendir.c	\
-	pipe.c	\
 	pipe-filter-aux.c	\
 	pipe-filter-ii.c	\
 	pipe-safer.c	\
+	pipe.c	\
 	pipe2-safer.c	\
 	pipe2.c	\
 	printf-args.c	\
@@ -162,8 +167,9 @@ GETTEXT_LIB_BASE_SRCS =	\
 	sigaction.c	\
 	sigprocmask.c	\
 	snprintf.c	\
-	spawn.c	\
+	sockets.c	\
 	spawn-pipe.c	\
+	spawn.c	\
 	spawnattr_destroy.c	\
 	spawnattr_init.c	\
 	spawnattr_setflags.c	\
@@ -178,8 +184,8 @@ GETTEXT_LIB_BASE_SRCS =	\
 	spawn_faction_destroy.c	\
 	spawn_faction_init.c	\
 	stat-time.c	\
-	stat-w32.c	\
 	stat.c	\
+	stat-w32.c	\
 	stdio-write.c	\
 	stpcpy.c	\
 	stpncpy.c	\
@@ -190,12 +196,15 @@ GETTEXT_LIB_BASE_SRCS =	\
 	striconv.c	\
 	striconveh.c	\
 	striconveha.c	\
+	string-desc-contains.c	\
+	string-desc.c	\
 	stripslash.c	\
 	strnlen1.c	\
 	strstr.c	\
 	strtol.c	\
 	strtoul.c	\
 	supersede.c	\
+	sys_socket.c	\
 	tempname.c	\
 	timespec.c	\
 	tmpdir.c	\
@@ -235,15 +244,9 @@ GETTEXT_LIB_BASE_SRCS =	\
 	xstriconveh.c	\
 	xvasprintf.c
 
-!if $(VSVER) > 14
-GETTEXT_LIB_BASE_SRCS =	\
-	$(GETTEXT_LIB_BASE_SRCS)	\
-	mbsrtowcs-state.c	\
-	mbsrtowcs.c
-!endif
-
 LIBGREP_SOURCES =	\
 	kwset.c	\
+	localeconv.c	\
 	m-fgrep.c	\
 	m-regex.c	\
 	mbrlen.c	\

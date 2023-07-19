@@ -57,7 +57,7 @@ GETTEXT_RUNTIME_GNULIB_CFLAGS =	\
 GETTEXT_RUNTIME_DEP_LIBS = iconv.lib advapi32.lib
 
 TEXTSTYLE_DEP_LIBS = ws2_32.lib $(GETTEXT_RUNTIME_DEP_LIBS)
-GETTEXTLIB_DEP_LIBS = bcrypt.lib $(GETTEXT_RUNTIME_DEP_LIBS)
+GETTEXTLIB_DEP_LIBS = bcrypt.lib $(TEXTSTYLE_DEP_LIBS)
 
 FORCED_INCLUDED_HEADERS =	\
 	/FIarg-nonnull.h	\
@@ -101,17 +101,14 @@ GETTEXT_RC_FLAGS =	\
 	/dPACKAGE_VERSION_SUBMINOR=$(GETTEXT_VERSION_MICRO)	\
 	/dPACKAGE_VERSION_STRING=\"$(GETTEXT_VERSION)\"
 
-BASE_LIBTEXTSTYLE_INCLUDES =	\
-	/I..\libtextstyle\lib	\
-	$(FORCED_INCLUDED_HEADERS)
-
 LIBTEXTSTYLE_INCLUDES =	\
-	/I..\libtextstyle\lib\libcroco	\
-	/I..\msvc\libtextstyle\lib\glib	\
 	/I..\msvc\libtextstyle\lib	\
 	/I..\libtextstyle\lib	\
 	/I..\msvc\libtextstyle	\
-	$(BASE_LIBTEXTSTYLE_INCLUDES)
+	/I..\libtextstyle	\
+	/I..\msvc\libtextstyle\lib\glib	\
+	/I..\libtextstyle\lib\libcroco	\
+	$(FORCED_INCLUDED_HEADERS)
 
 LIBTEXTSTYLE_DEFINES =	\
 	/DIN_LIBTEXTSTYLE=1	\
@@ -126,8 +123,10 @@ GETTEXT_TOOLS_INCLUDES =	\
 	/I..\msvc\gettext-tools\gnulib-lib	\
 	/I..\gettext-tools\gnulib-lib	\
 	/I..\msvc\gettext-tools	\
+	/I..	\
 	/I..\msvc\gettext-runtime\intl	\
-	$(BASE_GETTEXT_TOOLS_INCLUDES)
+	/I..\gettext-runtime\intl	\
+	$(FORCED_INCLUDED_HEADERS)
 
 GETTEXT_TOOLS_GNULIB_CFLAGS =	\
 	$(GETTEXT_RUNTIME_GNULIB_CFLAGS)
@@ -135,6 +134,7 @@ GETTEXT_TOOLS_GNULIB_CFLAGS =	\
 LIBGREP_INCLUDES =	\
 	/I..\msvc\gettext-tools\libgrep	\
 	/I..\gettext-tools\libgrep	\
+	/I..\msvc\gettext-tools	\
 	$(GETTEXT_TOOLS_INCLUDES)
 
 LIBGREP_CFLAGS =	\
