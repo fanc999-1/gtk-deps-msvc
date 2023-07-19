@@ -78,7 +78,10 @@ LIBINTL_INCLUDES = \
 
 GETTEXT_RUNTIME_GNULIB_INCLUDES =	\
 	/I..\msvc\gettext-runtime\gnulib-lib	\
+	/I..\gettext-runtime\gnulib-lib	\
 	/I..\msvc\gettext-runtime	\
+	/I..\gettext-runtime\intl	\
+	/I..\msvc\gettext-runtime\intl	\
 	$(BASE_GETTEXT_RUNTIME_INCLUDES)
 
 ASPRINTF_INCLUDES =	\
