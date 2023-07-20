@@ -115,10 +115,6 @@ LIBTEXTSTYLE_DEFINES =	\
 	/DDEPENDS_ON_LIBICONV=1	\
 	$(GETTEXT_BASE_DEFINES)
 
-BASE_GETTEXT_TOOLS_INCLUDES =	\
-	/I..\gettext-tools\gnulib-lib	\
-	$(FORCED_INCLUDED_HEADERS)
-
 GETTEXT_TOOLS_INCLUDES =	\
 	/I..\msvc\gettext-tools\gnulib-lib	\
 	/I..\gettext-tools\gnulib-lib	\
@@ -144,12 +140,13 @@ LIBGREP_CFLAGS =	\
 GETTEXTPO_GNULIB_INCLUDES =	\
 	/I..\msvc\gettext-tools\libgettextpo	\
 	/I..\gettext-tools\libgettextpo	\
-	/I..\gettext-tools\src	\
-	/I..\msvc\gettext-tools\gnulib-lib	\
 	/I..\msvc\gettext-tools	\
+	/I..\gettext-tools	\
+	/I..\msvc\gettext-tools\src	\
+	/I..\gettext-tools\src	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl	\
-	$(BASE_GETTEXT_TOOLS_INCLUDES)
+	$(FORCED_INCLUDED_HEADERS)
 
 LIBGETTEXTPO_DEFINES =	\
 	/DIN_LIBGETTEXTPO=1	\

@@ -284,6 +284,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	fstat.c	\
 	fstrcmp.c	\
 	fsync.c	\
+	full-write.c	\
 	fwriteerror.c	\
 	gcd.c	\
 	getdelim.c	\
@@ -302,7 +303,9 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	mbrtowc.c	\
 	mbsinit.c	\
 	mbswidth.c	\
+	memmem.c	\
 	mem-hash-map.c	\
+	memrchr.c	\
 	msvc-inval.c	\
 	msvc-nothrow.c	\
 	obstack.c	\
@@ -314,11 +317,13 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	realloc.c	\
 	reallocarray.c	\
 	relocatable.c	\
+	safe-write.c	\
 	setlocale_null.c	\
 	sigprocmask.c	\
 	stat-time.c	\
 	stat-w32.c	\
 	stat.c	\
+	stdio-write.c	\
 	stpcpy.c	\
 	stpncpy.c	\
 	strchrnul.c	\
@@ -327,6 +332,8 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	striconv.c	\
 	striconveh.c	\
 	striconveha.c	\
+	string-desc-contains.c	\
+	string-desc.c	\
 	strstr.c	\
 	unistd.c	\
 	vasnprintf.c	\
@@ -338,6 +345,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	windows-recmutex.c	\
 	windows-rwlock.c	\
 	windows-tls.c	\
+	write.c	\
 	xalloc-die.c	\
 	xasprintf.c	\
 	xconcat-filename.c	\
@@ -424,7 +432,58 @@ LIBGETTEXTSRC_SRCS =	\
 	its.c \
 	search-path.c
 
-LIBGETTEXTPO_AUX_SRCS =	$(LIBGETTEXTSRC_COMMON_SRCS)
+LIBGETTEXTPO_AUX_SRCS =	\
+	str-list.c \
+	dir-list.c \
+	message.c \
+	pos.c \
+	msgl-ascii.c \
+	po-error.c \
+	po-xerror.c \
+	write-catalog.c \
+	write-po.c \
+	open-catalog.c \
+	po-charset.c \
+	po-lex.c \
+	po-gram-gen.c \
+	read-po.c \
+	read-catalog-abstract.c \
+	read-catalog.c \
+	plural-table.c \
+	format-c.c \
+	format-c++-brace.c \
+	format-python.c \
+	format-python-brace.c \
+	format-java.c \
+	format-java-printf.c \
+	format-csharp.c \
+	format-javascript.c \
+	format-scheme.c \
+	format-lisp.c \
+	format-elisp.c \
+	format-librep.c \
+	format-ruby.c \
+	format-sh.c \
+	format-awk.c \
+	format-lua.c \
+	format-pascal.c \
+	format-smalltalk.c \
+	format-qt.c \
+	format-qt-plural.c \
+	format-kde.c \
+	format-kde-kuit.c \
+	format-boost.c \
+	format-tcl.c \
+	format-perl.c \
+	format-perl-brace.c \
+	format-php.c \
+	format-gcc-internal.c \
+	format-gfc-internal.c \
+	format.c \
+	plural-exp.c \
+	plural-eval.c \
+	msgl-check.c \
+	sentence.c
 
 MSGATTRIB_SOURCES = msgattrib.c
 MSGCAT_SOURCES = msgcat.c
