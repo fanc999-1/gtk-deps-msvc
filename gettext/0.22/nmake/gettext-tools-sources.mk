@@ -349,77 +349,80 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	xvasprintf.c
 
 FORMAT_SOURCES =	\
-	format-awk.c	\
-	format-boost.c	\
+	..\gettext-tools\woe32dll\c++format.cc	\
 	format-c.c	\
-	format-csharp.c	\
-	format-elisp.c	\
-	format-gcc-internal.c	\
-	format-gfc-internal.c	\
-	format-java-printf.c	\
+	format-c++-brace.c	\
+	format-python.c	\
+	format-python-brace.c	\
 	format-java.c	\
+	format-java-printf.c	\
+	format-csharp.c	\
 	format-javascript.c	\
-	format-kde-kuit.c	\
-	format-kde.c	\
-	format-librep.c	\
+	format-scheme.c	\
 	format-lisp.c	\
+	format-elisp.c	\
+	format-librep.c	\
+	format-ruby.c	\
+	format-sh.c	\
+	format-awk.c	\
 	format-lua.c	\
 	format-pascal.c	\
-	format-perl-brace.c	\
-	format-perl.c	\
-	format-php.c	\
-	format-python-brace.c	\
-	format-python.c	\
-	format-qt-plural.c	\
-	format-qt.c	\
-	format-ruby.c	\
-	format-scheme.c	\
-	format-sh.c	\
 	format-smalltalk.c	\
+	format-qt.c	\
+	format-qt-plural.c	\
+	format-kde.c	\
+	format-kde-kuit.c	\
+	format-boost.c	\
 	format-tcl.c	\
-	..\gettext-tools\woe32dll\c++format.cc
+	format-perl.c	\
+	format-perl-brace.c	\
+	format-php.c	\
+	format-gcc-internal.c	\
+	format-gfc-internal.c
 
-LIBGETTEXTSRC_COMMON_SRCS =	\
-	dir-list.c	\
+COMMON_SRCS =	\
 	message.c	\
-	msgl-ascii.c	\
-	msgl-check.c	\
+	pos.c	\
+	po-error.c	\
+	po-xerror.c	\
+	read-catalog-abstract.c	\
+	po-lex.c	\
+	po-gram-gen.c	\
+	po-charset.c	\
+	read-po.c	\
+	read-properties.c	\
+	read-stringtable.c	\
 	open-catalog.c	\
+	dir-list.c	\
+	str-list.c
+  
+LIBGETTEXTSRC_SRCS =	\
+	$(COMMON_SRCS)	\
+	read-catalog.c	\
+	write-catalog.c	\
+	write-properties.c	\
+	write-stringtable.c	\
+	write-po.c	\
+	msgl-ascii.c	\
+	msgl-ofn.c	\
+	msgl-iconv.c	\
+	msgl-equal.c	\
+	msgl-cat.c	\
+	msgl-header.c	\
+	msgl-english.c	\
+	msgl-check.c	\
+	file-list.c	\
+	msgl-charset.c	\
+	po-time.c	\
 	plural-exp.c	\
 	plural-eval.c	\
 	plural-table.c	\
-	po-error.c	\
-	po-gram-gen.c	\
-	po-charset.c	\
-	po-lex.c	\
-	po-xerror.c	\
-	read-catalog.c	\
-	read-catalog-abstract.c	\
-	read-po.c	\
-	read-stringtable.c	\
 	sentence.c	\
-	str-list.c	\
-	write-catalog.c	\
-	write-po.c	\
-	$(FORMAT_SOURCES)
-  
-LIBGETTEXTSRC_SRCS =	\
-	$(LIBGETTEXTSRC_COMMON_SRCS)	\
-	file-list.c	\
-	its.c	\
+	$(FORMAT_SOURCES)	\
+	read-desktop.c \
 	locating-rule.c	\
-	msgl-cat.c	\
-	msgl-english.c	\
-	msgl-equal.c	\
-	msgl-charset.c	\
-	msgl-header.c	\
-	msgl-iconv.c	\
-	po-time.c	\
-	read-desktop.c	\
-	read-properties.c	\
-	search-path.c	\
-	write-properties.c	\
-	write-stringtable.c	\
+	its.c \
+	search-path.c
 
 LIBGETTEXTPO_AUX_SRCS =	$(LIBGETTEXTSRC_COMMON_SRCS)
 
@@ -499,7 +502,7 @@ XGETTEXT_SOURCES =	\
 	x-po.c	\
 	x-python.c	\
 	x-rst.c	\
-    x-ruby.c	\
+	x-ruby.c	\
 	x-scheme.c	\
 	x-sh.c	\
 	x-smalltalk.c	\

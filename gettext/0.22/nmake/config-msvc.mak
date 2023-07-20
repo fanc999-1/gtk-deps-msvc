@@ -159,13 +159,14 @@ LIBGETTEXTPO_DEFINES =	\
 LIBGETTEXTSRC_INCLUDES =	\
 	/I..\msvc\gettext-tools\src	\
 	/I..\gettext-tools\src	\
+	/I..\msvc\gettext-tools	\
+	/I..\gettext-tools	\
+	/I..\gettext-tools\libgrep	\
 	/I..\msvc\gettext-tools\gnulib-lib	\
 	/I..\gettext-tools\gnulib-lib	\
-	/I..\msvc\gettext-tools	\
-	/I..\msvc\libtextstyle\lib	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl	\
-	$(BASE_GETTEXT_TOOLS_INCLUDES)
+	$(FORCED_INCLUDED_HEADERS)
 
 LIBGETTEXTSRC_CFLAGS =	\
 	$(GETTEXT_TOOLS_GNULIB_CFLAGS)	\
