@@ -244,6 +244,10 @@ GETTEXT_LIB_BASE_SRCS =	\
 	xstriconveh.c	\
 	xvasprintf.c
 
+!if "$(PLAT)" == "Win32"
+GETTEXT_LIB_BASE_SRCS = $(GETTEXT_LIB_BASE_SRCS) getaddrinfo.c
+!endif
+
 LIBGREP_SOURCES =	\
 	kwset.c	\
 	localeconv.c	\

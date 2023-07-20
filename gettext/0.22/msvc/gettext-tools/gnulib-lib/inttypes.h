@@ -62,6 +62,13 @@
 /* On mingw, __USE_MINGW_ANSI_STDIO only works if <stdio.h> is also included */
 #if defined _WIN32 && ! defined __CYGWIN__
 # include <stdio.h>
+# ifdef _MSC_VER
+#  ifdef _WIN64
+#   define GNULIB_SIZE_T_MODIFIER "ll"
+#  else
+#   define GNULIB_SIZE_T_MODIFIER "l"
+#  endif
+# endif
 #endif
 
 #if !(INT_MAX == 0x7fffffff && INT_MIN + INT_MAX == -1)
@@ -994,32 +1001,32 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
 
 #if !defined PRIdPTR
 # ifdef INTPTR_MAX
-#  define PRIdPTR "ll" "d"
+#  define PRIdPTR GNULIB_SIZE_T_MODIFIER "d"
 # endif
 #endif
 #if !defined PRIiPTR
 # ifdef INTPTR_MAX
-#  define PRIiPTR "ll" "i"
+#  define PRIiPTR GNULIB_SIZE_T_MODIFIER "i"
 # endif
 #endif
 #if !defined PRIoPTR
 # ifdef UINTPTR_MAX
-#  define PRIoPTR "ll" "o"
+#  define PRIoPTR GNULIB_SIZE_T_MODIFIER "o"
 # endif
 #endif
 #if !defined PRIuPTR
 # ifdef UINTPTR_MAX
-#  define PRIuPTR "ll" "u"
+#  define PRIuPTR GNULIB_SIZE_T_MODIFIER "u"
 # endif
 #endif
 #if !defined PRIxPTR
 # ifdef UINTPTR_MAX
-#  define PRIxPTR "ll" "x"
+#  define PRIxPTR GNULIB_SIZE_T_MODIFIER "x"
 # endif
 #endif
 #if !defined PRIXPTR
 # ifdef UINTPTR_MAX
-#  define PRIXPTR "ll" "X"
+#  define PRIXPTR GNULIB_SIZE_T_MODIFIER "X"
 # endif
 #endif
 
@@ -1390,27 +1397,27 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
 
 #if !defined SCNdPTR
 # ifdef INTPTR_MAX
-#  define SCNdPTR "ll" "d"
+#  define SCNdPTR GNULIB_SIZE_T_MODIFIER "d"
 # endif
 #endif
 #if !defined SCNiPTR
 # ifdef INTPTR_MAX
-#  define SCNiPTR "ll" "i"
+#  define SCNiPTR GNULIB_SIZE_T_MODIFIER "i"
 # endif
 #endif
 #if !defined SCNoPTR
 # ifdef UINTPTR_MAX
-#  define SCNoPTR "ll" "o"
+#  define SCNoPTR GNULIB_SIZE_T_MODIFIER "o"
 # endif
 #endif
 #if !defined SCNuPTR
 # ifdef UINTPTR_MAX
-#  define SCNuPTR "ll" "u"
+#  define SCNuPTR GNULIB_SIZE_T_MODIFIER "u"
 # endif
 #endif
 #if !defined SCNxPTR
 # ifdef UINTPTR_MAX
-#  define SCNxPTR "ll" "x"
+#  define SCNxPTR GNULIB_SIZE_T_MODIFIER "x"
 # endif
 #endif
 

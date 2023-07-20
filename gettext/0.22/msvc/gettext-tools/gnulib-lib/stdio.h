@@ -20,6 +20,14 @@
 
 #endif
 
+#ifdef _WIN32
+# ifdef _WIN64
+#  define MSVC_SYM_PFX ""
+# else
+#  define MSVC_SYM_PFX "_"
+# endif
+#endif
+
 
 #if defined __need_FILE || defined __need___FILE || defined _GL_ALREADY_INCLUDING_STDIO_H
 /* Special invocation convention:
@@ -1679,14 +1687,14 @@ _GL_WARN_ON_USE (popen, "popen is buggy on some platforms - "
 #   if 0 || 0
 _GL_FUNCDECL_RPL_1 (__printf__, int,
                     (const char *restrict format, ...)
-                    __asm__ (""
+                    __asm__ (MSVC_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_printf))
                     _GL_ATTRIBUTE_FORMAT_PRINTF_STANDARD (1, 2)
                     _GL_ARG_NONNULL ((1)));
 #   else
 _GL_FUNCDECL_RPL_1 (__printf__, int,
                     (const char *restrict format, ...)
-                    __asm__ (""
+                    __asm__ (MSVC_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_printf))
                     _GL_ATTRIBUTE_FORMAT_PRINTF_SYSTEM (1, 2)
                     _GL_ARG_NONNULL ((1)));
@@ -1877,7 +1885,7 @@ _GL_WARN_ON_USE (renameat, "renameat is not portable - "
 #   endif
 _GL_FUNCDECL_RPL_1 (__scanf__, int,
                     (const char *restrict format, ...)
-                    __asm__ (""
+                    __asm__ (MSVC_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_scanf))
                     _GL_ATTRIBUTE_FORMAT_SCANF_SYSTEM (1, 2)
                     _GL_ARG_NONNULL ((1)));

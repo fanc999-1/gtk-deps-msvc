@@ -680,7 +680,7 @@ struct addrinfo
    socket addresses.
    For more details, see the POSIX:2008 specification
    <https://pubs.opengroup.org/onlinepubs/9699919799/functions/getaddrinfo.html>.  */
-# if 0
+# ifndef _WIN64
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   undef getaddrinfo
 #   define getaddrinfo rpl_getaddrinfo
@@ -716,7 +716,7 @@ _GL_CXXALIASWARN (getaddrinfo);
 /* Free 'addrinfo' structure AI including associated storage.
    For more details, see the POSIX:2008 specification
    <https://pubs.opengroup.org/onlinepubs/9699919799/functions/getaddrinfo.html>.  */
-# if 0
+# ifndef _WIN64
 #  if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #   undef freeaddrinfo
 #   define freeaddrinfo rpl_freeaddrinfo
