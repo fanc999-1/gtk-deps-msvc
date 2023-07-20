@@ -94,6 +94,12 @@ sigprocmask
 stpcpy
 stpncpy
 strchrnul
+string_desc_c
+string_desc_free
+string_desc_from_c
+string_desc_new_addr
+string_desc_new_empty
+string_desc_substring
 trim2
 uc_is_java_whitespace
 uc_is_space
@@ -161,6 +167,7 @@ xmlXPathRegisterNs
 xmlXPathSetContextNode
 xnmalloc
 xrealloc
+xreallocarray
 xsetenv
 xstrdup
 xzalloc
