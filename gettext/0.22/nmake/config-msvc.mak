@@ -9,6 +9,19 @@ GETTEXT_VERSION_MINOR=22
 GETTEXT_VERSION_MICRO=0
 GETTEXT_VERSION=$(GETTEXT_VERSION_MAJOR).$(GETTEXT_VERSION_MINOR).$(GETTEXT_VERSION_MICRO)
 
+!ifndef ICON_DIR
+ICONV_DIR=$(PREFIX)
+!endif
+!ifndef ICONV_INCLUDEDIR
+ICONV_INCLUDEDIR=$(ICONV_DIR)\include
+!endif
+!ifndef ICONV_LIBDIR
+ICONV_LIBDIR=$(ICONV_DIR)\lib
+!endif
+!ifndef ICONV_BINDIR
+ICONV_BINDIR=$(ICONV_DIR)\bin
+!endif
+
 # For Windows 7 or later
 GETTEXT_BASE_DEFINES =	\
 	/DENABLE_RELOCATABLE=1	\
@@ -65,16 +78,20 @@ FORCED_INCLUDED_HEADERS =	\
 	/FIwarn-on-use.h	\
 	/FI_Noreturn.h
 
-BASE_GETTEXT_RUNTIME_INCLUDES =	\
-	/I..\gettext-runtime\gnulib-lib	\
+BASE_INCLUDE_FLAGS =	\
+	/I$(ICONV_INCLUDEDIR)	\
+	/I$(PREFIX)\include	\
 	$(FORCED_INCLUDED_HEADERS)
+
+# Look for iconv.lib in ICONV_LIBDIR too
+LDFLAGS = $(LDFLAGS) /libpath:$(ICONV_LIBDIR) /libpath:$(PREFIX)\lib
 
 LIBINTL_INCLUDES = \
 	/I..\gettext-runtime\intl	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl\gnulib-lib	\
 	/I..\msvc\gettext-runtime\intl\gnulib-lib	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 GETTEXT_RUNTIME_GNULIB_INCLUDES =	\
 	/I..\msvc\gettext-runtime\gnulib-lib	\
@@ -82,14 +99,14 @@ GETTEXT_RUNTIME_GNULIB_INCLUDES =	\
 	/I..\msvc\gettext-runtime	\
 	/I..\gettext-runtime\intl	\
 	/I..\msvc\gettext-runtime\intl	\
-	$(BASE_GETTEXT_RUNTIME_INCLUDES)
+	$(BASE_INCLUDE_FLAGS)
 
 ASPRINTF_INCLUDES =	\
 	/I..\msvc\gettext-runtime\libasprintf	\
 	/I..\gettext-runtime\libasprintf	\
 	/I..\gettext-runtime\libasprintf\gnulib-lib	\
 	/I..\msvc\gettext-runtime\libasprintf\gnulib-lib	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 ASPRINTF_DEFINES =	\
 	/DIN_LIBASPRINTF=1	\
@@ -108,7 +125,7 @@ LIBTEXTSTYLE_INCLUDES =	\
 	/I..\libtextstyle	\
 	/I..\msvc\libtextstyle\lib\glib	\
 	/I..\libtextstyle\lib\libcroco	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 LIBTEXTSTYLE_DEFINES =	\
 	/DIN_LIBTEXTSTYLE=1	\
@@ -119,10 +136,10 @@ GETTEXT_TOOLS_INCLUDES =	\
 	/I..\msvc\gettext-tools\gnulib-lib	\
 	/I..\gettext-tools\gnulib-lib	\
 	/I..\msvc\gettext-tools	\
-	/I..	\
+	/I..\gettext-tools	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 GETTEXT_TOOLS_GNULIB_CFLAGS =	\
 	$(GETTEXT_RUNTIME_GNULIB_CFLAGS)
@@ -130,7 +147,6 @@ GETTEXT_TOOLS_GNULIB_CFLAGS =	\
 LIBGREP_INCLUDES =	\
 	/I..\msvc\gettext-tools\libgrep	\
 	/I..\gettext-tools\libgrep	\
-	/I..\msvc\gettext-tools	\
 	$(GETTEXT_TOOLS_INCLUDES)
 
 LIBGREP_CFLAGS =	\
@@ -146,7 +162,7 @@ GETTEXTPO_GNULIB_INCLUDES =	\
 	/I..\gettext-tools\src	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 LIBGETTEXTPO_DEFINES =	\
 	/DIN_LIBGETTEXTPO=1	\
@@ -163,7 +179,7 @@ LIBGETTEXTSRC_INCLUDES =	\
 	/I..\gettext-tools\gnulib-lib	\
 	/I..\msvc\gettext-runtime\intl	\
 	/I..\gettext-runtime\intl	\
-	$(FORCED_INCLUDED_HEADERS)
+	$(BASE_INCLUDE_FLAGS)
 
 LIBGETTEXTSRC_CFLAGS =	\
 	$(GETTEXT_TOOLS_GNULIB_CFLAGS)	\

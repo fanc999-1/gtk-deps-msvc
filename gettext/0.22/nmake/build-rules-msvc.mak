@@ -412,6 +412,7 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msggrep.exe:
 # <<
 
 install: all
+	@set PATH=$(ICONV_BINDIR);$(PATH)
 	@-for %d in (bin lib include\textstyle) do @mkdir $(PREFIX)\%d
 	@for %f in ($(GETTEXT_RUNTIME_LIBS:.lib=.dll) $(GETTEXTPO_LIB:.lib=.dll) $(LIBTEXTSTYLE_LIB:.lib=.dll)) do \
 	 @((if exist %~pnf.pdb copy %~pnf.pdb $(PREFIX)\bin) & copy /b %f $(PREFIX)\bin)
@@ -455,7 +456,7 @@ install: all
 	@copy ..\gettext-tools\doc\*.html $(PREFIX)\share\doc\gettext
 	@copy ..\gettext-runtime\libasprintf\autosprintf_all.html $(PREFIX)\share\doc\libasprintf
 	@-for %d in (runtime tools) do @for %l in (..\gettext-%d\po\*.po) do @mkdir $(PREFIX)\share\locale\%~nl\LC_MESSAGES
-	@for %d in (runtime tools) do @for %l in (..\gettext-%d\po\*.po) do	\
+	@-for %d in (runtime tools) do @for %l in (..\gettext-%d\po\*.po) do	\
 	 @vs$(VSVER)\$(CFG)\$(PLAT)\msgfmt.exe -c --statistics --verbose -o $(PREFIX)\share\locale\%~nl\LC_MESSAGES\gettext-%d.mo %l
 
 clean:
