@@ -21,7 +21,7 @@
 
 #ifdef IN_LIBTEXTSTYLE
 /* All code is collected in a single library,  */
-# define LIBTEXTSTYLE_DLL_VARIABLE
+# define LIBTEXTSTYLE_DLL_VARIABLE __declspec (dllexport)
 #else
 /* References from outside of libtextstyle.  */
 # define LIBTEXTSTYLE_DLL_VARIABLE __declspec (dllimport)
