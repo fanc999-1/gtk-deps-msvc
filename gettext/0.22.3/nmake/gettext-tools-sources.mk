@@ -13,11 +13,28 @@ GETTEXT_LIB_BASE_SRCS =	\
 	basename-lgpl.c	\
 	binary-io.c	\
 	bitrotate.c	\
+	btoc32.c	\
 	c-ctype.c	\
 	c-strcasecmp.c	\
 	c-strcasestr.c	\
 	c-strncasecmp.c	\
 	c-strstr.c	\
+	c32isalnum.c	\
+	c32isalpha.c	\
+	c32isblank.c	\
+	c32iscntrl.c	\
+	c32isdigit.c	\
+	c32isgraph.c	\
+	c32islower.c	\
+	c32isprint.c	\
+	c32ispunct.c	\
+	c32isspace.c	\
+	c32isupper.c	\
+	c32isxdigit.c	\
+	c32tolower.c	\
+	c32width.c	\
+	c32_apply_type_test.c	\
+	c32_get_type_test.c	\
 	calloc.c	\
 	canonicalize-lgpl.c	\
 	canonicalize.c	\
@@ -95,6 +112,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	isnand.c	\
 	isnanf.c	\
 	isnanl.c	\
+	iswctype.c	\
 	javacomp.c	\
 	javaexec.c	\
 	javaversion.c	\
@@ -107,13 +125,17 @@ GETTEXT_LIB_BASE_SRCS =	\
 	malloca.c	\
 	math.c	\
 	mbchar.c	\
-	mbiter.c	\
+	mbrtoc32.c	\
 	mbrtowc.c	\
 	mbsinit.c	\
 	mbslen.c	\
+	mbsrtoc32s.c	\
+	mbsrtoc32s-state.c	\
 	mbsstr.c	\
 	mbswidth.c	\
+	mbszero.c	\
 	mbuiter.c	\
+	mbuiterf.c	\
 	mem-hash-map.c	\
 	memmem.c	\
 	mempcpy.c	\
@@ -156,6 +178,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	rmdir.c	\
 	safe-read.c	\
 	safe-write.c	\
+	same-inode.c	\
 	save-cwd.c	\
 	secure_getenv.c	\
 	set-permissions.c	\
@@ -220,6 +243,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	wait-process.c	\
 	waitpid.c	\
 	wctype-h.c	\
+	wctype.c	\
 	wcwidth.c	\
 	windows-mutex.c	\
 	windows-once.c	\
