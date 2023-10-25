@@ -44,6 +44,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\malloc.c	\
 	..\libtextstyle\lib\malloca.c	\
 	..\libtextstyle\lib\math.c	\
+	..\libtextstyle\lib\mbszero.c	\
 	..\libtextstyle\lib\mem-hash-map.c	\
 	..\libtextstyle\lib\memory-ostream.c	\
 	..\libtextstyle\lib\misc.c	\
@@ -63,10 +64,11 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\reallocarray.c	\
 	..\libtextstyle\lib\safe-read.c	\
 	..\libtextstyle\lib\safe-write.c	\
+	..\libtextstyle\lib\same-inode.c	\
 	..\libtextstyle\lib\sig-handler.c	\
 	..\libtextstyle\lib\sigaction.c	\
-	..\libtextstyle\lib\snprintf.c	\
 	..\libtextstyle\lib\sigprocmask.c	\
+	..\libtextstyle\lib\snprintf.c	\
 	..\libtextstyle\lib\sockets.c	\
 	..\libtextstyle\lib\stat-time.c	\
 	..\libtextstyle\lib\stat.c	\
@@ -84,8 +86,8 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\unistd.c	\
 	..\libtextstyle\lib\vasnprintf.c	\
 	..\libtextstyle\lib\vasprintf.c	\
-	..\libtextstyle\lib\vsnprintf.c	\
 	..\libtextstyle\lib\version.c	\
+	..\libtextstyle\lib\vsnprintf.c	\
 	..\libtextstyle\lib\windows-mutex.c	\
 	..\libtextstyle\lib\windows-once.c	\
 	..\libtextstyle\lib\windows-recmutex.c	\
