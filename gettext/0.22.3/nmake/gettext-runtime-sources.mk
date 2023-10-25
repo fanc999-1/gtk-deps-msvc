@@ -37,6 +37,7 @@ GETTEXT_RUNTIME_INTL_GNULIB_SRCS =	\
 	..\gettext-runtime\intl\gnulib-lib\math.c	\
 	..\gettext-runtime\intl\gnulib-lib\mbrtowc.c	\
 	..\gettext-runtime\intl\gnulib-lib\mbsinit.c	\
+	..\gettext-runtime\intl\gnulib-lib\mbszero.c	\
 	..\gettext-runtime\intl\gnulib-lib\printf-args.c	\
 	..\gettext-runtime\intl\gnulib-lib\printf-frexp.c	\
 	..\gettext-runtime\intl\gnulib-lib\printf-frexpl.c	\
@@ -57,6 +58,7 @@ GETTEXT_RUNTIME_INTL_GNULIB_SRCS =	\
 GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 	..\gettext-runtime\libasprintf\gnulib-lib\asnprintf.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\free.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\mbszero.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\printf-args.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\printf-parse.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\unistd.c	\
@@ -68,10 +70,24 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\areadlink.c	\
 	..\gettext-runtime\gnulib-lib\basename-lgpl.c	\
 	..\gettext-runtime\gnulib-lib\binary-io.c	\
-	..\gettext-runtime\gnulib-lib\calloc.c	\
 	..\gettext-runtime\gnulib-lib\c-ctype.c	\
 	..\gettext-runtime\gnulib-lib\c-strcasecmp.c	\
 	..\gettext-runtime\gnulib-lib\c-strncasecmp.c	\
+	..\gettext-runtime\gnulib-lib\c32isalnum.c	\
+	..\gettext-runtime\gnulib-lib\c32isalpha.c	\
+	..\gettext-runtime\gnulib-lib\c32isblank.c	\
+	..\gettext-runtime\gnulib-lib\c32iscntrl.c	\
+	..\gettext-runtime\gnulib-lib\c32isdigit.c	\
+	..\gettext-runtime\gnulib-lib\c32isgraph.c	\
+	..\gettext-runtime\gnulib-lib\c32islower.c	\
+	..\gettext-runtime\gnulib-lib\c32isprint.c	\
+	..\gettext-runtime\gnulib-lib\c32ispunct.c	\
+	..\gettext-runtime\gnulib-lib\c32isspace.c	\
+	..\gettext-runtime\gnulib-lib\c32isupper.c	\
+	..\gettext-runtime\gnulib-lib\c32isxdigit.c	\
+	..\gettext-runtime\gnulib-lib\c32tolower.c	\
+	..\gettext-runtime\gnulib-lib\c32width.c	\
+	..\gettext-runtime\gnulib-lib\calloc.c	\
 	..\gettext-runtime\gnulib-lib\canonicalize-lgpl.c	\
 	..\gettext-runtime\gnulib-lib\careadlinkat.c	\
 	..\gettext-runtime\gnulib-lib\cloexec.c	\
@@ -97,12 +113,14 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\malloc.c	\
 	..\gettext-runtime\gnulib-lib\malloca.c	\
 	..\gettext-runtime\gnulib-lib\mbchar.c	\
-	..\gettext-runtime\gnulib-lib\mbiter.c	\
+	..\gettext-runtime\gnulib-lib\mbrtoc32.c	\
 	..\gettext-runtime\gnulib-lib\mbrtowc.c	\
 	..\gettext-runtime\gnulib-lib\mbsinit.c	\
 	..\gettext-runtime\gnulib-lib\mbslen.c	\
 	..\gettext-runtime\gnulib-lib\mbsstr.c	\
+	..\gettext-runtime\gnulib-lib\mbszero.c	\
 	..\gettext-runtime\gnulib-lib\mbuiter.c	\
+	..\gettext-runtime\gnulib-lib\mbuiterf.c	\
 	..\gettext-runtime\gnulib-lib\mempcpy.c	\
 	..\gettext-runtime\gnulib-lib\msvc-inval.c	\
 	..\gettext-runtime\gnulib-lib\msvc-nothrow.c	\

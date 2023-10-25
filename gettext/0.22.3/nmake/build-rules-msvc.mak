@@ -68,6 +68,12 @@ $<
 $<
 <<
 
+{..\gettext-runtime\gnulib-lib\unictype\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\grt\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\grt\ md vs$(VSVER)\$(CFG)\$(PLAT)\grt
+	$(CC) $(GETTEXT_RUNTIME_GNULIB_INCLUDES) $(GETTEXT_RUNTIME_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\grt\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\grt\ /c @<<
+$<
+<<
+
 {..\gettext-runtime\gnulib-lib\uniwidth\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\grt\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\grt\ md vs$(VSVER)\$(CFG)\$(PLAT)\grt
 	$(CC) $(GETTEXT_RUNTIME_GNULIB_INCLUDES) $(GETTEXT_RUNTIME_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\grt\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\grt\ /c @<<

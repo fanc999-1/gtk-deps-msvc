@@ -73,6 +73,9 @@ NULL=
 !if [for %s in (..\gettext-runtime\gnulib-lib\unistr\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\grt\%~ns.obj]
 !endif
 
+!if [for %s in (..\gettext-runtime\gnulib-lib\unictype\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\grt\%~ns.obj]
+!endif
+
 !if [for %s in (..\gettext-runtime\gnulib-lib\uniwidth\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\grt\%~ns.obj]
 !endif
 
