@@ -41,15 +41,15 @@ GETTEXT_RUNTIME_BASE_DEFINES =	\
 	/DNO_XMALLOC
 
 GETTEXT_BASE_PATH_DEFINES =	\
-	/DINSTALLDIR=\"c:/vs$(VSVER).0/$(PLAT)\"	\
-	/DLIBDIR=\"c:/vs$(VSVER).0/$(PLAT)/lib\"	\
-	/DLOCALEDIR=\"c:/vs$(VSVER).0/$(PLAT)/share/locale\"	\
-	/DLOCALE_ALIAS_PATH=\"c:/vs$(VSVER).0/$(PLAT)/share/locale\"
+	/DINSTALLDIR=\"c:/vs$(PDBVER).0/$(PLAT)\"	\
+	/DLIBDIR=\"c:/vs$(PDBVER).0/$(PLAT)/lib\"	\
+	/DLOCALEDIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/locale\"	\
+	/DLOCALE_ALIAS_PATH=\"c:/vs$(PDBVER).0/$(PLAT)/share/locale\"
 
 EXTRA_INSTALL_PATHS_DEFINES =	\
 	/DLIBPATHVAR=\"PATH\"	\
-	/DLIBDIRS=\"c:/vs$(VSVER).0/$(PLAT)/bin\",	\
-	/DINSTALLDIR=\"c:/vs$(VSVER).0/$(PLAT)/bin\"
+	/DLIBDIRS=\"c:/vs$(PDBVER).0/$(PLAT)/bin\",	\
+	/DINSTALLDIR=\"c:/vs$(PDBVER).0/$(PLAT)/bin\"
 
 GETTEXT_RUNTIME_CFLAGS =	\
 	$(GETTEXT_RUNTIME_BASE_DEFINES)	\
@@ -184,11 +184,11 @@ LIBGETTEXTSRC_INCLUDES =	\
 
 LIBGETTEXTSRC_CFLAGS =	\
 	$(GETTEXT_TOOLS_GNULIB_CFLAGS)	\
-	/DBISON_LOCALEDIR=\"c:/vs$(VSVER).0/$(PLAT)/share/locale\"	\
+	/DBISON_LOCALEDIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/locale\"	\
 	/DUSE_JAVA=0	\
-	/DGETTEXTJAR=\"c:/vs$(VSVER).0/$(PLAT)/share/gettext/gettext.jar\"	\
-	/DGETTEXTDATADIR=\"c:/vs$(VSVER).0/$(PLAT)/share/gettext\"	\
-	/DPROJECTSDIR=\"c:/vs$(VSVER).0/$(PLAT)/share/gettext/projects\"
+	/DGETTEXTJAR=\"c:/vs$(PDBVER).0/$(PLAT)/share/gettext/gettext.jar\"	\
+	/DGETTEXTDATADIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/gettext\"	\
+	/DPROJECTSDIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/gettext/projects\"
 
 # We build the libintl DLL/LIB at least
 INTL_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\intl.lib
