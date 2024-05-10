@@ -277,7 +277,6 @@ GETTEXT_LIB_BASE_SRCS = $(GETTEXT_LIB_BASE_SRCS) getaddrinfo.c
 LIBGREP_SOURCES =	\
 	iswctype.c	\
 	kwset.c	\
-	localeconv.c	\
 	m-fgrep.c	\
 	m-regex.c	\
 	mbrlen.c	\
@@ -292,17 +291,17 @@ LIBGREP_SOURCES =	\
 LIBGETTEXTPO_GNULIB_SRCS =	\
 	asnprintf.c	\
 	asprintf.c	\
+	calloc.c	\
 	basename-lgpl.c	\
 	c-ctype.c	\
 	c-strcasecmp.c	\
 	c-strncasecmp.c	\
 	c-strstr.c	\
-	calloc.c	\
+	c32iscntrl.c	\
+	c32width.c	\
 	cloexec.c	\
 	close.c	\
 	concat-filename.c	\
-	c32iscntrl.c	\
-	c32width.c	\
 	dup2.c	\
 	error-progname.c	\
 	error.c	\
@@ -336,8 +335,8 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	mbsinit.c	\
 	mbswidth.c	\
 	mbszero.c	\
-	memmem.c	\
 	mem-hash-map.c	\
+	memmem.c	\
 	memrchr.c	\
 	msvc-inval.c	\
 	msvc-nothrow.c	\
@@ -351,6 +350,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	reallocarray.c	\
 	relocatable.c	\
 	safe-write.c	\
+	setlocale_null-unlocked.c	\
 	setlocale_null.c	\
 	sigprocmask.c	\
 	stat-time.c	\
