@@ -4,10 +4,10 @@ GETTEXT_LIB_BASE_SRCS =	\
 	acl-internal.c	\
 	addext.c	\
 	allocator.c	\
-	asprintf.c	\
 	areadlink.c	\
 	argmatch.c	\
 	asnprintf.c	\
+	asprintf.c	\
 	asyncsafe-spin.c	\
 	backupfile.c	\
 	basename-lgpl.c	\
@@ -118,6 +118,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	javaversion.c	\
 	localcharset.c	\
 	localename-table.c	\
+	localename-unsafe.c	\
 	localename.c	\
 	localtime.c	\
 	lseek.c	\
@@ -127,10 +128,10 @@ GETTEXT_LIB_BASE_SRCS =	\
 	mbchar.c	\
 	mbrtoc32.c	\
 	mbrtowc.c	\
+	mbsrtoc32s-state.c	\
 	mbsinit.c	\
 	mbslen.c	\
 	mbsrtoc32s.c	\
-	mbsrtoc32s-state.c	\
 	mbsstr.c	\
 	mbswidth.c	\
 	mbszero.c	\
@@ -184,6 +185,7 @@ GETTEXT_LIB_BASE_SRCS =	\
 	set-permissions.c	\
 	setenv.c	\
 	setlocale.c	\
+	setlocale_null-unlocked.c	\
 	setlocale_null.c	\
 	sh-quote.c	\
 	sig-handler.c	\
