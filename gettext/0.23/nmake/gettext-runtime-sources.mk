@@ -65,10 +65,12 @@ GETTEXT_RUNTIME_INTL_GNULIB_SRCS =	\
 
 GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 	..\gettext-runtime\libasprintf\gnulib-lib\asnprintf.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\float.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\free.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\mbszero.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\printf-args.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\printf-parse.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\stdlib.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\unistd.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\vasnprintf.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\xsize.c
