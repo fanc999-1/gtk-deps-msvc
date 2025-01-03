@@ -231,7 +231,9 @@
 /* #undef HAVE_C_BOOL */
 
 /* Define to 1 if the static_assert keyword works. */
-/* #undef HAVE_C_STATIC_ASSERT */
+#if !defined (_MSC_VER) || (_MSC_VER >= 1931)
+# define HAVE_C_STATIC_ASSERT 1
+#endif
 
 /* Define if the GNU dcgettext() function is already present or preinstalled.
    */
