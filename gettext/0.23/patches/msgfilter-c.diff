@@ -1,0 +1,12 @@
+--- a/gettext-tools/src/msgfilter.c	2024-12-31 15:22:35.671383300 +0800
++++ b/gettext-tools/src/msgfilter.c	2024-12-31 15:22:15.892318700 +0800
+@@ -64,6 +64,10 @@
+ 
+ #define _(str) gettext (str)
+ 
++#ifdef _MSC_VER
++_GL_FUNCDECL_SYS (unsetenv, int, (const char *name), _GL_ARG_NONNULL ((1)));
++#endif
+ 
+ /* We use a child process, and communicate through a bidirectional pipe.  */
+ 
