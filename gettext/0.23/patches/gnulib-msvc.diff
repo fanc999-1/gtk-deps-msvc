@@ -1,0 +1,48 @@
+--- a/gettext-runtime/gnulib-lib/memmove.c	2025-01-03 10:40:40.415652300 +0800
++++ b/gettext-runtime/gnulib-lib/memmove.c	2025-01-03 10:40:55.444268900 +0800
+@@ -9,8 +9,13 @@
+ 
+ /* Copy LENGTH bytes from SOURCE to DEST.  Does not null-terminate.  */
+ 
++#if !defined (_MSC_VER) || (_MSC_VER < 1900)
+ void *
+ memmove (void *dest0, void const *source0, size_t length)
++#else
++void *
++rpl_memmove (void *dest0, void const *source0, size_t length)
++#endif
+ {
+   char *dest = dest0;
+   char const *source = source0;
+--- a/gettext-tools/gnulib-lib/memmove.c	2024-12-31 15:16:13.435003100 +0800
++++ b/gettext-tools/gnulib-lib/memmove.c	2025-01-03 10:40:55.444268900 +0800
+@@ -9,8 +9,13 @@
+ 
+ /* Copy LENGTH bytes from SOURCE to DEST.  Does not null-terminate.  */
+ 
++#if !defined (_MSC_VER) || (_MSC_VER < 1900)
+ void *
+ memmove (void *dest0, void const *source0, size_t length)
++#else
++void *
++rpl_memmove (void *dest0, void const *source0, size_t length)
++#endif
+ {
+   char *dest = dest0;
+   char const *source = source0;
+--- a/gettext-tools/gnulib-lib/memset.c	2024-12-31 15:19:23.028380400 +0800
++++ b/gettext-tools/gnulib-lib/memset.c	2025-01-03 10:37:22.151219600 +0800
+@@ -18,8 +18,13 @@
+ 
+ #include <stddef.h>
+ 
++#if !defined (_MSC_VER) || (_MSC_VER < 1910)
+ void *
+ memset (void *str, int c, size_t len)
++#else
++void *
++rpl_memset (void *str, int c, size_t len)
++#endif
+ {
+   register char *st = str;
+ 
