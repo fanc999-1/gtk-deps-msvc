@@ -78,6 +78,7 @@ GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\allocator.c	\
 	..\gettext-runtime\gnulib-lib\areadlink.c	\
+	..\gettext-runtime\gnulib-lib\asnprintf.c	\
 	..\gettext-runtime\gnulib-lib\basename-lgpl.c	\
 	..\gettext-runtime\gnulib-lib\binary-io.c	\
 	..\gettext-runtime\gnulib-lib\c-ctype.c	\
@@ -108,8 +109,10 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\exitfail.c	\
 	..\gettext-runtime\gnulib-lib\fcntl.c	\
 	..\gettext-runtime\gnulib-lib\fd-hook.c	\
+	..\gettext-runtime\gnulib-lib\float.c	\
 	..\gettext-runtime\gnulib-lib\free.c	\
 	..\gettext-runtime\gnulib-lib\fstat.c	\
+	..\gettext-runtime\gnulib-lib\full-write.c	\
 	..\gettext-runtime\gnulib-lib\fwriteerror.c	\
 	..\gettext-runtime\gnulib-lib\getdtablesize.c	\
 	..\gettext-runtime\gnulib-lib\getopt.c	\
@@ -117,12 +120,15 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\getprogname.c	\
 	..\gettext-runtime\gnulib-lib\hard-locale.c	\
 	..\gettext-runtime\gnulib-lib\ialloc.c	\
+	..\gettext-runtime\gnulib-lib\isnanf.c	\
+	..\gettext-runtime\gnulib-lib\isnanl.c	\
 	..\gettext-runtime\gnulib-lib\localcharset.c	\
 	..\gettext-runtime\gnulib-lib\localename-table.c	\
 	..\gettext-runtime\gnulib-lib\localename-unsafe.c	\
 	..\gettext-runtime\gnulib-lib\localename.c	\
-	..\gettext-runtime\gnulib-lib\malloc.c	\
 	..\gettext-runtime\gnulib-lib\malloca.c	\
+	..\gettext-runtime\gnulib-lib\malloc.c	\
+	..\gettext-runtime\gnulib-lib\math.c	\
 	..\gettext-runtime\gnulib-lib\mbchar.c	\
 	..\gettext-runtime\gnulib-lib\mbrtoc32.c	\
 	..\gettext-runtime\gnulib-lib\mbrtowc.c	\
@@ -132,19 +138,27 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\mbszero.c	\
 	..\gettext-runtime\gnulib-lib\mbuiter.c	\
 	..\gettext-runtime\gnulib-lib\mbuiterf.c	\
+	..\gettext-runtime\gnulib-lib\memmem.c	\
 	..\gettext-runtime\gnulib-lib\mempcpy.c	\
+	..\gettext-runtime\gnulib-lib\memrchr.c	\
 	..\gettext-runtime\gnulib-lib\msvc-inval.c	\
 	..\gettext-runtime\gnulib-lib\msvc-nothrow.c	\
 	..\gettext-runtime\gnulib-lib\open.c	\
+	..\gettext-runtime\gnulib-lib\printf-args.c	\
+	..\gettext-runtime\gnulib-lib\printf-frexp.c	\
+	..\gettext-runtime\gnulib-lib\printf-frexpl.c	\
+	..\gettext-runtime\gnulib-lib\printf-parse.c	\
 	..\gettext-runtime\gnulib-lib\progname.c	\
 	..\gettext-runtime\gnulib-lib\progreloc.c	\
 	..\gettext-runtime\gnulib-lib\propername.c	\
+	..\gettext-runtime\gnulib-lib\pthread-once.c	\
 	..\gettext-runtime\gnulib-lib\raise.c	\
 	..\gettext-runtime\gnulib-lib\rawmemchr.c	\
 	..\gettext-runtime\gnulib-lib\readlink.c	\
 	..\gettext-runtime\gnulib-lib\realloc.c	\
 	..\gettext-runtime\gnulib-lib\reallocarray.c	\
 	..\gettext-runtime\gnulib-lib\relocatable.c	\
+	..\gettext-runtime\gnulib-lib\safe-write.c	\
 	..\gettext-runtime\gnulib-lib\setlocale.c	\
 	..\gettext-runtime\gnulib-lib\setlocale_null-unlocked.c	\
 	..\gettext-runtime\gnulib-lib\setlocale_null.c	\
@@ -153,20 +167,32 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\stat.c	\
 	..\gettext-runtime\gnulib-lib\stat-w32.c	\
 	..\gettext-runtime\gnulib-lib\stdio-write.c	\
+	..\gettext-runtime\gnulib-lib\stdlib.c	\
 	..\gettext-runtime\gnulib-lib\strerror-override.c	\
 	..\gettext-runtime\gnulib-lib\strerror.c	\
 	..\gettext-runtime\gnulib-lib\striconv.c	\
+	..\gettext-runtime\gnulib-lib\string-buffer-printf.c	\
+	..\gettext-runtime\gnulib-lib\string-buffer.c	\
+	..\gettext-runtime\gnulib-lib\string-desc-contains.c	\
+	..\gettext-runtime\gnulib-lib\string-desc.c	\
 	..\gettext-runtime\gnulib-lib\strnlen1.c	\
 	..\gettext-runtime\gnulib-lib\strtoul.c	\
 	..\gettext-runtime\gnulib-lib\trim.c	\
 	..\gettext-runtime\gnulib-lib\unistd.c	\
+	..\gettext-runtime\gnulib-lib\vasnprintf.c	\
+	..\gettext-runtime\gnulib-lib\vsnzprintf.c	\
 	..\gettext-runtime\gnulib-lib\wctype-h.c	\
 	..\gettext-runtime\gnulib-lib\wcwidth.c	\
 	..\gettext-runtime\gnulib-lib\windows-mutex.c	\
 	..\gettext-runtime\gnulib-lib\windows-once.c	\
 	..\gettext-runtime\gnulib-lib\windows-recmutex.c	\
 	..\gettext-runtime\gnulib-lib\windows-rwlock.c	\
+	..\gettext-runtime\gnulib-lib\write.c	\
 	..\gettext-runtime\gnulib-lib\xalloc-die.c	\
 	..\gettext-runtime\gnulib-lib\xmalloc.c	\
 	..\gettext-runtime\gnulib-lib\xreadlink.c	\
-	..\gettext-runtime\gnulib-lib\xstriconv.c
+	..\gettext-runtime\gnulib-lib\xsize.c	\
+	..\gettext-runtime\gnulib-lib\xstriconv.c	\
+	..\gettext-runtime\gnulib-lib\xstring-buffer-printf.c	\
+	..\gettext-runtime\gnulib-lib\xstring-buffer.c
+
