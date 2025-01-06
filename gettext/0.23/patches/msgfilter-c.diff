@@ -7,6 +7,7 @@
 +#ifdef _MSC_VER
 +_GL_FUNCDECL_SYS (unsetenv, int, (const char *name), _GL_ARG_NONNULL ((1)));
 +#endif
++
  
  /* We use a child process, and communicate through a bidirectional pipe.  */
  
