@@ -787,7 +787,7 @@
 
 /* Define to 1 if malloc-like functions do not allocate objects larger than
    PTRDIFF_MAX bytes. */
-#ifdef (_WIN64)
+#ifdef _WIN64
 # define HAVE_MALLOC_PTRDIFF 1
 #endif
 
@@ -1256,8 +1256,6 @@
 #endif
 
 #define INSTALLPREFIX "C:\\vs14.0\\" GETTEXT_PLAT
-
-#undef GETTEXT_PLAT
 
 /* Define as the bit index in the word where to find bit 0 of the exponent of
    'long double'. */
