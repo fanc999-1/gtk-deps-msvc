@@ -1,3 +1,7 @@
+!if "$(PLAT)" == "Win32"
+EXTRA_LIBTEXTSTYLE_SRCS = malloc.c calloc.c
+!endif
+
 LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\asnprintf.c	\
 	..\libtextstyle\lib\asprintf.c	\
@@ -7,7 +11,6 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\c-ctype.c	\
 	..\libtextstyle\lib\c-strcasecmp.c	\
 	..\libtextstyle\lib\c-strncasecmp.c	\
-	..\libtextstyle\lib\calloc.c	\
 	..\libtextstyle\lib\cloexec.c	\
 	..\libtextstyle\lib\close.c	\
 	..\libtextstyle\lib\color.c	\
@@ -43,7 +46,6 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\isnand.c	\
 	..\libtextstyle\lib\isnanf.c	\
 	..\libtextstyle\lib\isnanl.c	\
-	..\libtextstyle\lib\malloc.c	\
 	..\libtextstyle\lib\malloca.c	\
 	..\libtextstyle\lib\math.c	\
 	..\libtextstyle\lib\mbszero.c	\
@@ -105,4 +107,5 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\xgethostname.c	\
 	..\libtextstyle\lib\xmalloc.c	\
 	..\libtextstyle\lib\xsize.c	\
-	..\libtextstyle\lib\xvasprintf.c
+	..\libtextstyle\lib\xvasprintf.c	\
+	$(EXTRA_LIBTEXTSTYLE_SRCS)

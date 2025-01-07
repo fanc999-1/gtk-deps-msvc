@@ -75,6 +75,10 @@ GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 	..\gettext-runtime\libasprintf\gnulib-lib\vasnprintf.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\xsize.c
 
+!if "$(PLAT)" == "Win32"
+EXTRA_GETTEXT_RUNTIME_GNULIB_SRCS = malloc.c calloc.c
+!endif
+
 GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\allocator.c	\
 	..\gettext-runtime\gnulib-lib\areadlink.c	\
@@ -98,7 +102,6 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\c32isxdigit.c	\
 	..\gettext-runtime\gnulib-lib\c32tolower.c	\
 	..\gettext-runtime\gnulib-lib\c32width.c	\
-	..\gettext-runtime\gnulib-lib\calloc.c	\
 	..\gettext-runtime\gnulib-lib\canonicalize-lgpl.c	\
 	..\gettext-runtime\gnulib-lib\careadlinkat.c	\
 	..\gettext-runtime\gnulib-lib\cloexec.c	\
@@ -127,7 +130,6 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\localename-unsafe.c	\
 	..\gettext-runtime\gnulib-lib\localename.c	\
 	..\gettext-runtime\gnulib-lib\malloca.c	\
-	..\gettext-runtime\gnulib-lib\malloc.c	\
 	..\gettext-runtime\gnulib-lib\math.c	\
 	..\gettext-runtime\gnulib-lib\mbchar.c	\
 	..\gettext-runtime\gnulib-lib\mbrtoc32.c	\
@@ -194,5 +196,6 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\xsize.c	\
 	..\gettext-runtime\gnulib-lib\xstriconv.c	\
 	..\gettext-runtime\gnulib-lib\xstring-buffer-printf.c	\
-	..\gettext-runtime\gnulib-lib\xstring-buffer.c
+	..\gettext-runtime\gnulib-lib\xstring-buffer.c	\
+	$(EXTRA_GETTEXT_RUNTIME_GNULIB_SRCS)
 
