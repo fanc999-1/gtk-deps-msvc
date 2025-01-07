@@ -156,6 +156,11 @@ $<
 $<
 <<
 
+{..\gettext-tools\gnulib-lib\uninorm\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
+	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
+$<
+<<
+
 {..\gettext-tools\gnulib-lib\uniconv\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
 	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
 $<
@@ -354,8 +359,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBASPRINTF_DLL): $(libasprintf_OBJS) $(ASPRINTF_GNU
 vs$(VSVER)\$(CFG)\$(PLAT)\GNU.Gettext.dll: ..\gettext-runtime\intl-csharp\intl.cs vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBINTL_DLL)
 	csc $(CSCFLAGS) /target:library /out:$@ ..\gettext-runtime\intl-csharp\intl.cs
 
-vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib-$(GETTEXT_VERSION).dll: libgettextlib.def vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\libxml $(gettextlib_OBJS) $(INTL_LIB)
-	link /DLL $(LDFLAGS) -out:$@ $(gettextlib_OBJS) $(INTL_LIB) $(GETTEXTLIB_DEP_LIBS) /def:libgettextlib.def
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib-$(GETTEXT_VERSION).dll: vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\gettextlib.def vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\libxml $(gettextlib_OBJS) $(INTL_LIB)
+	link /DLL $(LDFLAGS) -out:$@ $(gettextlib_OBJS) $(INTL_LIB) $(GETTEXTLIB_DEP_LIBS) /def:vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\gettextlib.def
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;2
 
 vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBGETTEXTPO_DLL): vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo $(gettextpo_OBJS) $(gettextpo_gnulib_OBJS) $(INTL_LIB)

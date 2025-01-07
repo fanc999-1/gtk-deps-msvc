@@ -18,3 +18,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\libgrep	\
 vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle	\
 vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\libxml:
 	@-md $@
+
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\gettextlib.def: vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib gettextlib.symbols
+	@echo Generating $@...
+	@echo EXPORTS>$@
+	$(CPP) /EP $(@B).symbols>>$@
