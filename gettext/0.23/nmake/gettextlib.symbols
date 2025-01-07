@@ -1,4 +1,3 @@
-EXPORTS
 cleanup_temp_dir
 closedir
 close_stdout
@@ -70,7 +69,12 @@ rpl_fwrite
 rpl_getline
 rpl_getopt_long
 rpl_localtime
+#ifndef _WIN64
+rpl_calloc
 rpl_malloc
+rpl_realloc
+rpl_getaddrinfo
+#endif
 rpl_mbrtowc
 rpl_mbsinit
 rpl_mkdir
