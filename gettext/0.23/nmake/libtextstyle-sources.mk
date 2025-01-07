@@ -1,6 +1,7 @@
 LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\asnprintf.c	\
 	..\libtextstyle\lib\asprintf.c	\
+	..\libtextstyle\lib\aszprintf.c	\
 	..\libtextstyle\lib\basename-lgpl.c	\
 	..\libtextstyle\lib\binary-io.c	\
 	..\libtextstyle\lib\c-ctype.c	\
@@ -19,6 +20,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\fd-hook.c	\
 	..\libtextstyle\lib\fd-ostream.c	\
 	..\libtextstyle\lib\file-ostream.c	\
+	..\libtextstyle\lib\float.c	\
 	..\libtextstyle\lib\free.c	\
 	..\libtextstyle\lib\fstat.c	\
 	..\libtextstyle\lib\fsync.c	\
@@ -58,6 +60,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\printf-frexp.c	\
 	..\libtextstyle\lib\printf-frexpl.c	\
 	..\libtextstyle\lib\printf-parse.c	\
+	..\libtextstyle\lib\pthread-once.c	\
 	..\libtextstyle\lib\raise.c	\
 	..\libtextstyle\lib\read.c	\
 	..\libtextstyle\lib\realloc.c	\
@@ -71,8 +74,9 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\snprintf.c	\
 	..\libtextstyle\lib\sockets.c	\
 	..\libtextstyle\lib\stat-time.c	\
-	..\libtextstyle\lib\stat.c	\
 	..\libtextstyle\lib\stat-w32.c	\
+	..\libtextstyle\lib\stat.c	\
+	..\libtextstyle\lib\stdlib.c	\
 	..\libtextstyle\lib\stpcpy.c	\
 	..\libtextstyle\lib\strerror-override.c	\
 	..\libtextstyle\lib\strerror.c	\
@@ -86,8 +90,10 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\unistd.c	\
 	..\libtextstyle\lib\vasnprintf.c	\
 	..\libtextstyle\lib\vasprintf.c	\
+	..\libtextstyle\lib\vaszprintf.c	\
 	..\libtextstyle\lib\version.c	\
 	..\libtextstyle\lib\vsnprintf.c	\
+	..\libtextstyle\lib\vsnzprintf.c	\
 	..\libtextstyle\lib\windows-mutex.c	\
 	..\libtextstyle\lib\windows-once.c	\
 	..\libtextstyle\lib\windows-recmutex.c	\
