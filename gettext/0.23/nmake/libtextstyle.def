@@ -106,3 +106,4 @@ print_color_test
 style_file_prepare
 styled_ostream_create
 libtextstyle_isatty
+libtextstyle_set_failure_exit_code
