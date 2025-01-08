@@ -6,6 +6,7 @@ catenate_msgdomain_list
 check_message_list
 check_msgid_msgstr_format_i
 check_plural_eval
+check_pot_charset
 cleanup_temp_dir
 compare_po_locale_charsets
 convert_string_desc_directly
@@ -43,6 +44,7 @@ get_search_path
 get_python_format_unnamed_arg_count
 get_sysdep_c_format_directives
 handle_filepos_comment_option
+header_set_charset
 iconv_message_list
 iconv_msgdomain_list
 is_ascii_message_list
@@ -99,22 +101,23 @@ msgdomain_list_sort_by_filepos
 msgdomain_list_sort_by_msgid
 msgdomain_list_sublist
 open_catalog_file
+parse_comment_special
 possible_format_p
 po_charset_canonicalize
 po_charset_character_iterator
-po_gram_error_at_line
-po_lex_pass_obsolete_entries
-po_parse_comment_special
 po_strftime
 read_catalog_file
 read_catalog_stream
 read_names_from_file
 register_temp_file
 register_temp_subdir
+sentence_end
 string_list_alloc
 string_list_append
+string_list_append_move
 string_list_append_unique
 string_list_append_unique_desc
+string_list_concat
 string_list_destroy
 string_list_free
 string_list_init
@@ -122,6 +125,6 @@ string_list_join
 string_list_member_desc
 string_list_member
 string_list_remove
-syntax_check_message_list
+textmode_xerror_handler_struct DATA
 unregister_temp_file
 unregister_temp_subdir
