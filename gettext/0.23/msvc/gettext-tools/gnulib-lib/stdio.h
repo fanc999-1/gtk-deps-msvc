@@ -1826,6 +1826,12 @@ _GL_FUNCDECL_SYS (zprintf, off64_t, (const char *restrict format, ...),
 _GL_CXXALIAS_SYS (zprintf, off64_t, (const char *restrict format, ...));
 #endif
 
+#if defined (_WIN64) || defined (_M_ARM)
+# define GNULIB_SYM_PFX ""
+#else
+# define GNULIB_SYM_PFX "_"
+#endif
+
 #if 0 || 1
 /* Prints formatted output to standard output.
    Returns the number of bytes written to standard output.  Upon failure,
@@ -1840,14 +1846,14 @@ _GL_CXXALIAS_SYS (zprintf, off64_t, (const char *restrict format, ...));
 #   if 0 || 0
 _GL_FUNCDECL_RPL_1 (__printf__, int,
                     (const char *restrict format, ...)
-                    __asm__ ("_"
+                    __asm__ (GNULIB_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_printf)),
                     _GL_ATTRIBUTE_FORMAT_PRINTF_STANDARD (1, 2)
                     _GL_ARG_NONNULL ((1)));
 #   else
 _GL_FUNCDECL_RPL_1 (__printf__, int,
                     (const char *restrict format, ...)
-                    __asm__ ("_"
+                    __asm__ (GNULIB_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_printf)),
                     _GL_ATTRIBUTE_FORMAT_PRINTF_SYSTEM (1, 2)
                     _GL_ARG_NONNULL ((1)));
@@ -2038,7 +2044,7 @@ _GL_WARN_ON_USE (renameat, "renameat is not portable - "
 #   endif
 _GL_FUNCDECL_RPL_1 (__scanf__, int,
                     (const char *restrict format, ...)
-                    __asm__ ("_"
+                    __asm__ (GNULIB_SYM_PFX
                              _GL_STDIO_MACROEXPAND_AND_STRINGIZE(rpl_scanf)),
                     _GL_ATTRIBUTE_FORMAT_SCANF_SYSTEM (1, 2)
                     _GL_ARG_NONNULL ((1)) _GL_ATTRIBUTE_NODISCARD);

@@ -1016,34 +1016,40 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
 # endif
 #endif
 
+#ifdef _WIN64
+# define GNULIB_PTR_FMT "ll"
+#else
+# define GNULIB_PTR_FMT "l"
+#endif
+
 #if !defined PRIdPTR
 # ifdef INTPTR_MAX
-#  define PRIdPTR "l" "d"
+#  define PRIdPTR GNULIB_PTR_FMT "d"
 # endif
 #endif
 #if !defined PRIiPTR
 # ifdef INTPTR_MAX
-#  define PRIiPTR "l" "i"
+#  define PRIiPTR GNULIB_PTR_FMT "i"
 # endif
 #endif
 #if !defined PRIoPTR
 # ifdef UINTPTR_MAX
-#  define PRIoPTR "l" "o"
+#  define PRIoPTR GNULIB_PTR_FMT "o"
 # endif
 #endif
 #if !defined PRIuPTR
 # ifdef UINTPTR_MAX
-#  define PRIuPTR "l" "u"
+#  define PRIuPTR GNULIB_PTR_FMT "u"
 # endif
 #endif
 #if !defined PRIxPTR
 # ifdef UINTPTR_MAX
-#  define PRIxPTR "l" "x"
+#  define PRIxPTR GNULIB_PTR_FMT "x"
 # endif
 #endif
 #if !defined PRIXPTR
 # ifdef UINTPTR_MAX
-#  define PRIXPTR "l" "X"
+#  define PRIXPTR GNULIB_PTR_FMT "X"
 # endif
 #endif
 
@@ -1414,27 +1420,27 @@ _GL_WARN_EXTERN_C int _gl_warn_on_use
 
 #if !defined SCNdPTR
 # ifdef INTPTR_MAX
-#  define SCNdPTR "l" "d"
+#  define SCNdPTR GNULIB_PTR_FMT "d"
 # endif
 #endif
 #if !defined SCNiPTR
 # ifdef INTPTR_MAX
-#  define SCNiPTR "l" "i"
+#  define SCNiPTR GNULIB_PTR_FMT "i"
 # endif
 #endif
 #if !defined SCNoPTR
 # ifdef UINTPTR_MAX
-#  define SCNoPTR "l" "o"
+#  define SCNoPTR GNULIB_PTR_FMT "o"
 # endif
 #endif
 #if !defined SCNuPTR
 # ifdef UINTPTR_MAX
-#  define SCNuPTR "l" "u"
+#  define SCNuPTR GNULIB_PTR_FMT "u"
 # endif
 #endif
 #if !defined SCNxPTR
 # ifdef UINTPTR_MAX
-#  define SCNxPTR "l" "x"
+#  define SCNxPTR GNULIB_PTR_FMT "x"
 # endif
 #endif
 
