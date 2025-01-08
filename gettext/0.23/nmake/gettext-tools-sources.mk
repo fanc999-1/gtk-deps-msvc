@@ -595,10 +595,13 @@ RECODE_SR_LATIN_SOURCES =	\
 
 XGETTEXT_SOURCES =	\
 	..\gettext-tools\woe32dll\c++xgettext.cc	\
+	if-error.c	\
 	xg-arglist-callshape.c	\
 	xg-arglist-context.c	\
 	xg-arglist-parser.c	\
+	xg-check.c	\
 	xg-encoding.c	\
+	xg-formatstring.c	\
 	xg-pos.c	\
 	xg-message.c	\
 	xg-mixed-string.c	\
