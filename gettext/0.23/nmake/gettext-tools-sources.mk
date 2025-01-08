@@ -451,26 +451,23 @@ COMMON_SRCS =	\
 	message.c	\
 	pos.c	\
 	po-error.c	\
-	po-xerror.c	\
 	read-catalog-abstract.c	\
-	po-lex.c	\
-	po-gram-gen.c	\
 	po-charset.c	\
 	read-po.c	\
+	read-po-gram.c	\
+	read-po-lex.c	\
 	read-properties.c	\
 	read-stringtable.c	\
 	open-catalog.c	\
 	dir-list.c	\
-	str-list.c
+	str-list.c	\
+	..\gettext-tools\woe32dll\c++xerror-handler.cc	\
   
 LIBGETTEXTSRC_SRCS =	\
 	$(COMMON_SRCS)	\
-	read-catalog.c	\
-	write-catalog.c	\
-	write-properties.c	\
-	write-stringtable.c	\
-	write-po.c	\
+	$(FORMAT_SOURCES)	\
 	msgl-ascii.c	\
+	msgl-charset.c	\
 	msgl-ofn.c	\
 	msgl-iconv.c	\
 	msgl-equal.c	\
@@ -479,17 +476,22 @@ LIBGETTEXTSRC_SRCS =	\
 	msgl-english.c	\
 	msgl-check.c	\
 	file-list.c	\
-	msgl-charset.c	\
+	its.c \
+	locating-rules.c \
 	po-time.c	\
 	plural-exp.c	\
 	plural-eval.c	\
 	plural-table.c	\
 	sentence.c	\
-	$(FORMAT_SOURCES)	\
+	read-catalog.c	\
 	read-desktop.c \
-	locating-rule.c	\
-	its.c \
-	search-path.c
+	read-catalog-file.c \
+	read-catalog-special.c \
+	search-path.c	\
+	write-catalog.c	\
+	write-properties.c	\
+	write-stringtable.c	\
+	write-po.c
 
 LIBGETTEXTPO_AUX_SRCS =	\
 	str-list.c \
