@@ -505,6 +505,7 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf-gnulib\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf-gnulib\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.def
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.pdb
