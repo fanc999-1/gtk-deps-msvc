@@ -197,6 +197,9 @@ NULL=
 !if [for %s in (..\gettext-tools\gnulib-lib\libxml\*.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettextlib\libxml\%~ns.obj ]
 !endif
 
+!if [call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettextlib\libgettextlib.res ]
+!endif
+
 !if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
 !endif
 
@@ -255,6 +258,9 @@ NULL=
 !endif
 
 !if [for %s in ($(LIBGETTEXTSRC_SRCS)) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettextsrc\%~ns.obj ]
+!endif
+
+!if [call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettextsrc\libgettextsrc.res ]
 !endif
 
 !if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
