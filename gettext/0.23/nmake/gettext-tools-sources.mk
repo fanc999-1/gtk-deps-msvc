@@ -316,24 +316,23 @@ LIBGREP_SOURCES =	\
 
 LIBGETTEXTPO_GNULIB_SRCS =	\
 	asnprintf.c	\
+	aszprintf.c	\
 	asprintf.c	\
 	basename-lgpl.c	\
 	c-ctype.c	\
 	c-strcasecmp.c	\
 	c-strncasecmp.c	\
 	c-strstr.c	\
-	c32iscntrl.c	\
-	c32width.c	\
 	cloexec.c	\
 	close.c	\
 	concat-filename.c	\
 	dup2.c	\
-	error-progname.c	\
 	error.c	\
 	exitfail.c	\
 	fcntl.c	\
 	fd-hook.c	\
 	fdopen.c	\
+	float.c	\
 	fopen.c	\
 	free.c	\
 	fstat.c	\
@@ -349,15 +348,13 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	gl_linked_list.c	\
 	gl_list.c	\
 	gl_xlist.c	\
-	hard-locale.c	\
 	ialloc.c	\
+	isnanf.c	\
+	isnanl.c	\
 	localcharset.c	\
 	malloca.c	\
 	markup.c	\
-	mbrtoc32.c	\
-	mbrtowc.c	\
-	mbsinit.c	\
-	mbswidth.c	\
+	math.c	\
 	mbszero.c	\
 	mem-hash-map.c	\
 	memmem.c	\
@@ -367,36 +364,38 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	obstack.c	\
 	open.c	\
 	printf-args.c	\
+	printf-frexp.c	\
+	printf-frexpl.c	\
 	printf-parse.c	\
+	pthread-once.c	\
 	raise.c	\
 	rawmemchr.c	\
 	realloc.c	\
 	reallocarray.c	\
 	relocatable.c	\
 	safe-write.c	\
-	setlocale_null-unlocked.c	\
-	setlocale_null.c	\
 	sigprocmask.c	\
 	stat-time.c	\
-	stat-w32.c	\
 	stat.c	\
+	stat-w32.c	\
 	stdio-write.c	\
+	stdlib.c	\
 	stpcpy.c	\
 	stpncpy.c	\
 	strchrnul.c	\
 	strerror-override.c	\
+	strerror_r.c	\
 	strerror.c	\
 	striconv.c	\
 	striconveh.c	\
 	striconveha.c	\
 	string-desc-contains.c	\
-	string-desc.c	\
 	strstr.c	\
+	string-desc.c	\
 	unistd.c	\
 	vasnprintf.c	\
 	vasprintf.c	\
-	wctype-h.c	\
-	wcwidth.c	\
+	vaszprintf.c	\
 	windows-mutex.c	\
 	windows-once.c	\
 	windows-recmutex.c	\
@@ -406,10 +405,10 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	xalloc-die.c	\
 	xasprintf.c	\
 	xconcat-filename.c	\
-	xerror.c	\
 	xmalloc.c	\
 	xmalloca.c	\
 	xsize.c	\
+	xstrerror.c	\
 	xstriconv.c	\
 	xvasprintf.c	\
 	$(EXTRA_GNULIB_BASE_SRCS)
@@ -493,56 +492,53 @@ LIBGETTEXTSRC_SRCS =	\
 	write-po.c
 
 LIBGETTEXTPO_AUX_SRCS =	\
-	str-list.c \
-	dir-list.c \
-	message.c \
-	pos.c \
-	msgl-ascii.c \
-	po-error.c \
-	po-xerror.c \
-	write-catalog.c \
-	write-po.c \
-	open-catalog.c \
-	po-charset.c \
-	po-lex.c \
-	po-gram-gen.c \
-	read-po.c \
-	read-catalog-abstract.c \
-	read-catalog.c \
-	plural-table.c \
-	format-c.c \
-	format-c++-brace.c \
-	format-python.c \
-	format-python-brace.c \
-	format-java.c \
-	format-java-printf.c \
-	format-csharp.c \
-	format-javascript.c \
-	format-scheme.c \
-	format-lisp.c \
-	format-elisp.c \
-	format-librep.c \
-	format-ruby.c \
-	format-sh.c \
-	format-awk.c \
-	format-lua.c \
-	format-pascal.c \
-	format-smalltalk.c \
-	format-qt.c \
-	format-qt-plural.c \
-	format-kde.c \
-	format-kde-kuit.c \
-	format-boost.c \
-	format-tcl.c \
-	format-perl.c \
-	format-perl-brace.c \
-	format-php.c \
-	format-gcc-internal.c \
-	format-gfc-internal.c \
-	format.c \
-	plural-exp.c \
-	plural-eval.c \
-	msgl-check.c \
+	str-list.c	\
+	message.c	\
+	pos.c	\
+	msgl-ascii.c	\
+	write-catalog.c	\
+	write-po.c	\
+	po-charset.c	\
+	read-catalog-special.c	\
+	read-catalog-abstract.c	\
+	read-catalog.c	\
+	read-po.c	\
+	read-po-lex.c	\
+	read-po-gram.c	\
+	plural-table.c	\
+	format-c.c	\
+	format-c++-brace.c	\
+	format-python.c	\
+	format-python-brace.c	\
+	format-java.c	\
+	format-java-printf.c	\
+	format-csharp.c	\
+	format-javascript.c	\
+	format-scheme.c	\
+	format-lisp.c	\
+	format-elisp.c	\
+	format-librep.c	\
+	format-ruby.c	\
+	format-sh.c	\
+	format-awk.c	\
+	format-lua.c	\
+	format-pascal.c	\
+	format-smalltalk.c	\
+	format-qt.c	\
+	format-qt-plural.c	\
+	format-kde.c	\
+	format-kde-kuit.c	\
+	format-boost.c	\
+	format-tcl.c	\
+	format-perl.c	\
+	format-perl-brace.c	\
+	format-php.c	\
+	format-gcc-internal.c	\
+	format-gfc-internal.c	\
+	format.c	\
+	plural-exp.c	\
+	plural-eval.c	\
+	msgl-check.c	\
 	sentence.c
 
 MSGATTRIB_SOURCES = msgattrib.c
