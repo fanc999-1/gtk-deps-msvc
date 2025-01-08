@@ -302,6 +302,10 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msggrep.obj: ..\gettext-tools\src\
 	@if not exist $(@D)\ md $(@D)
 	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGREP_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msginit.obj: ..\gettext-tools\src\msginit.c
+	@if not exist $(@D)\ md $(@D)
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) /FIconfigmake.h $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+
 # Rules for building .rc files
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res: ..\windows\gettext.rc
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\gettext.res: ..\windows\gettext.rc
