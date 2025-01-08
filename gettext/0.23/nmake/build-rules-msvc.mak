@@ -305,6 +305,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msggrep.obj: ..\gettext-tools\src\
 # Rules for building .rc files
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res: ..\windows\gettext.rc
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\gettext.res: ..\windows\gettext.rc
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\libgettextlib.res: ..\gettext-tools\gnulib-lib\libgettextlib.rc
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextsrc\libgettextsrc.res: ..\gettext-tools\src\libgettextsrc.rc
 vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo\libgettextpo.res: ..\gettext-tools\libgettextpo\libgettextpo.rc
 vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\libtextstyle.res: ..\libtextstyle\lib\libtextstyle.rc
 vs$(VSVER)\$(CFG)\$(PLAT)\intl-runtime\libintl.res: ..\gettext-runtime\intl\libintl.rc
@@ -315,6 +317,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\asprintf\libasprintf.res: ..\gettext-runtime\libasprin
 
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\gettext.res	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\libgettextlib.res	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettextsrc\libgettextsrc.res	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo\libgettextpo.res	\
 vs$(VSVER)\$(CFG)\$(PLAT)\intl-runtime\libintl.res	\
 vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\libtextstyle.res:
@@ -501,6 +505,7 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf-gnulib\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\asprintf-gnulib\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\libxml\*.obj
@@ -508,6 +513,7 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextpo\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextsrc\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextsrc\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettextsrc\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\*.obj
