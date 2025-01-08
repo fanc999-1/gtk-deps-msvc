@@ -100,7 +100,6 @@ GETTEXT_LIB_BASE_FILES =	\
 	gai_strerror	\
 	gcd	\
 	get-permissions	\
-	getaddrinfo	\
 	getcwd-lgpl	\
 	getcwd	\
 	getdelim	\
