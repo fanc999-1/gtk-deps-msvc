@@ -470,8 +470,7 @@ install: all
 	@for %f in (javaversion.class) do @copy ..\gettext-tools\gnulib-lib\%f $(PREFIX)\share\gettext
 	@for %f in (msgunfmt.tcl) do @copy ..\gettext-tools\src\%f $(PREFIX)\share\gettext
 	@for %f in (Makefile.in.in Makevars.template Rules-quot) do @copy ..\gettext-tools\po\%f $(PREFIX)\share\gettext\po
-	@for %f in (insert-headers remove-potcdate) do @copy ..\gettext-tools\po\%f.sin $(PREFIX)\share\gettext\po
-	@for %f in (boldquot quot) do @copy ..\gettext-tools\po\%f.sed $(PREFIX)\share\gettext\po
+	@for %f in (insert-headers remove-potcdate boldquot quot) do @copy ..\gettext-tools\po\%f.sed $(PREFIX)\share\gettext\po
 	@for %f in (boldquot quot) do @copy ..\gettext-tools\po\en@%f.header $(PREFIX)\share\gettext\po
 	@-for %d in (GNOME KDE TP) do @mkdir $(PREFIX)\share\gettext\projects\%d
 	@for %d in (GNOME KDE TP) do @copy ..\gettext-tools\projects\%d\* $(PREFIX)\share\gettext\projects\%d
