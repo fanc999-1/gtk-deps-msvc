@@ -165,7 +165,25 @@ $<
 $<
 <<
 
+{..\libtextstyle\lib\unicase\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ md vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle
+	$(CC) $(LIBTEXTSTYLE_INCLUDES) $(LIBTEXTSTYLE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /c @<<
+$<
+<<
+
+{..\libtextstyle\lib\unictype\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ md vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle
+	$(CC) $(LIBTEXTSTYLE_INCLUDES) $(LIBTEXTSTYLE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /c @<<
+$<
+<<
+
 {..\libtextstyle\lib\unistr\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ md vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle
+	$(CC) $(LIBTEXTSTYLE_INCLUDES) $(LIBTEXTSTYLE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /c @<<
+$<
+<<
+
+{..\libtextstyle\lib\uniwidth\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ md vs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle
 	$(CC) $(LIBTEXTSTYLE_INCLUDES) $(LIBTEXTSTYLE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libtextstyle\ /c @<<
 $<

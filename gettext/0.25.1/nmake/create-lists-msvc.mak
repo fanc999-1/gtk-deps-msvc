@@ -91,7 +91,6 @@ NULL=
 !if [for %c in ($(GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS)) do @if "%~xc" == ".c" @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\asprintf-gnulib\%~nc.obj]
 !endif
 
-
 !if [for %d in (unicase unictype uniwidth) do @for %c in (..\gettext-runtime\libasprintf\gnulib-lib\%d\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\asprintf-gnulib\%~nc.obj]
 !endif
 
@@ -118,22 +117,13 @@ NULL=
 !if [call create-lists.bat header libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak libtextstyle_OBJS]
 !endif
 
-!if [for %s in ($(LIBTEXTSTYLE_BASE_SRCS)) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
+!if [for %s in ($(LIBTEXTSTYLE_BASE_SRCS:..\libtextstyle\lib\=)) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
 !endif
 
-!if [for %s in (..\libtextstyle\lib\libcroco\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
+!if [for %d in (libxml) do @for %c in (..\libtextstyle\lib\%d\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\libxml\%~nc.obj]
 !endif
 
-!if [for %s in (..\libtextstyle\lib\glib\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
-!endif
-
-!if [for %s in (..\libtextstyle\lib\glthread\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
-!endif
-
-!if [for %s in (..\libtextstyle\lib\libxml\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\libxml\%~ns.obj ]
-!endif
-
-!if [for %s in (..\libtextstyle\lib\unistr\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~ns.obj ]
+!if [for %d in (libcroco glib glthread unicase unictype unistr uniwidth) do @for %c in (..\libtextstyle\lib\%d\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~nc.obj]
 !endif
 
 !if [@call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\libtextstyle.res]

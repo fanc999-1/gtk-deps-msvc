@@ -1,5 +1,7 @@
 !if "$(PLAT)" == "Win32"
-EXTRA_LIBTEXTSTYLE_SRCS = malloc.c calloc.c
+EXTRA_LIBTEXTSTYLE_SRCS =	\
+	..\libtextstyle\lib\calloc.c	\
+	..\libtextstyle\lib\malloc.c
 !endif
 
 LIBTEXTSTYLE_BASE_SRCS =	\
@@ -11,6 +13,20 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\c-ctype.c	\
 	..\libtextstyle\lib\c-strcasecmp.c	\
 	..\libtextstyle\lib\c-strncasecmp.c	\
+	..\libtextstyle\lib\c32isalnum.c	\
+	..\libtextstyle\lib\c32isalpha.c	\
+	..\libtextstyle\lib\c32isblank.c	\
+	..\libtextstyle\lib\c32iscntrl.c	\
+	..\libtextstyle\lib\c32isdigit.c	\
+	..\libtextstyle\lib\c32isgraph.c	\
+	..\libtextstyle\lib\c32islower.c	\
+	..\libtextstyle\lib\c32isprint.c	\
+	..\libtextstyle\lib\c32ispunct.c	\
+	..\libtextstyle\lib\c32isspace.c	\
+	..\libtextstyle\lib\c32isupper.c	\
+	..\libtextstyle\lib\c32isxdigit.c	\
+	..\libtextstyle\lib\c32tolower.c	\
+	..\libtextstyle\lib\c32width.c	\
 	..\libtextstyle\lib\cloexec.c	\
 	..\libtextstyle\lib\close.c	\
 	..\libtextstyle\lib\color.c	\
@@ -37,6 +53,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\gl_array_list.c	\
 	..\libtextstyle\lib\gl_list.c	\
 	..\libtextstyle\lib\gl_xlist.c	\
+	..\libtextstyle\lib\hard-locale.c	\
 	..\libtextstyle\lib\html-ostream.c	\
 	..\libtextstyle\lib\html-styled-ostream.c	\
 	..\libtextstyle\lib\ialloc.c	\
@@ -46,14 +63,22 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\isnand.c	\
 	..\libtextstyle\lib\isnanf.c	\
 	..\libtextstyle\lib\isnanl.c	\
+	..\libtextstyle\lib\localcharset.c	\
 	..\libtextstyle\lib\malloca.c	\
 	..\libtextstyle\lib\math.c	\
+	..\libtextstyle\lib\mbchar.c	\
+	..\libtextstyle\lib\mbiterf.c	\
+	..\libtextstyle\lib\mbrtoc32.c	\
+	..\libtextstyle\lib\mbrtowc.c	\
+	..\libtextstyle\lib\mbsinit.c	\
+	..\libtextstyle\lib\mbsnlen.c	\
 	..\libtextstyle\lib\mbszero.c	\
 	..\libtextstyle\lib\mem-hash-map.c	\
 	..\libtextstyle\lib\memory-ostream.c	\
 	..\libtextstyle\lib\misc.c	\
 	..\libtextstyle\lib\msvc-inval.c	\
 	..\libtextstyle\lib\msvc-nothrow.c	\
+	..\libtextstyle\lib\next-prime.c	\
 	..\libtextstyle\lib\noop-styled-ostream.c	\
 	..\libtextstyle\lib\obstack.c	\
 	..\libtextstyle\lib\open.c	\
@@ -70,6 +95,8 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\safe-read.c	\
 	..\libtextstyle\lib\safe-write.c	\
 	..\libtextstyle\lib\same-inode.c	\
+	..\libtextstyle\lib\setlocale_null-unlocked.c	\
+	..\libtextstyle\lib\setlocale_null.c	\
 	..\libtextstyle\lib\sig-handler.c	\
 	..\libtextstyle\lib\sigaction.c	\
 	..\libtextstyle\lib\sigprocmask.c	\
@@ -82,6 +109,8 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\stpcpy.c	\
 	..\libtextstyle\lib\strerror-override.c	\
 	..\libtextstyle\lib\strerror.c	\
+	..\libtextstyle\lib\str_endswith.c	\
+	..\libtextstyle\lib\str_startswith.c	\
 	..\libtextstyle\lib\styled-ostream.c	\
 	..\libtextstyle\lib\sys_socket.c	\
 	..\libtextstyle\lib\term-ostream.c	\
@@ -96,6 +125,8 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\version.c	\
 	..\libtextstyle\lib\vsnprintf.c	\
 	..\libtextstyle\lib\vsnzprintf.c	\
+	..\libtextstyle\lib\wctype-h.c	\
+	..\libtextstyle\lib\wcwidth.c	\
 	..\libtextstyle\lib\windows-mutex.c	\
 	..\libtextstyle\lib\windows-once.c	\
 	..\libtextstyle\lib\windows-recmutex.c	\
