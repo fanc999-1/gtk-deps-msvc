@@ -580,13 +580,24 @@ install: all
 	@for %d in (lib\textstyle) do @copy ..\msvc\libtextstyle\%d\* $(PREFIX)\include\textstyle
 	@for %f in (libtextstyle\lib\textstyle.h msvc\gettext-tools\libgettextpo\gettext-po.h) do	\
 	 @copy ..\%f $(PREFIX)\include
+	@-md $(PREFIX)\share\aclocal
+	@for %d in (nls) do @copy ..\gettext-runtime\m4\%d.m4 $(PREFIX)\share\aclocal
+	@-md $(PREFIX)\share\gettext\m4
+	@for %d in (ld link prefix) do @copy ..\gettext-runtime\gnulib-m4\lib-%d.m4 $(PREFIX)\share\gettext\m4
+	@for %d in (host-cpu-c-abi iconv) do @copy ..\gettext-runtime\gnulib-m4\%d.m4 $(PREFIX)\share\gettext\m4
+	@for %d in (build-to-host gettext nls po progtest) do @copy ..\gettext-runtime\m4\%d.m4 $(PREFIX)\share\gettext\m4
+	@for %d in (intlmacosx) do @copy ..\gettext-runtime\intl\gnulib-m4\%d.m4 $(PREFIX)\share\gettext\m4
+	@-md $(PREFIX)\share\gettext\schema
+	@for %d in (its-extensions) do @copy ..\gettext-tools\src\%d.xsd $(PREFIX)\share\gettext\schema
+	@for %d in (its locating-rules) do @for %x in (10 11) do @copy ..\gettext-tools\src\%d.xsd%x $(PREFIX)\share\gettext\schema
 	@-mkdir $(PREFIX)\share\gettext\po
 	@for %f in (ABOUT-NLS) do @copy ..\gettext-runtime\%f $(PREFIX)\share\gettext
+	@for %f in (disclaim-translations.txt) do @copy ..\gettext-tools\misc\%f $(PREFIX)\share\gettext
 	@for %f in (config.rpath) do @copy ..\build-aux\%f $(PREFIX)\share\gettext
 	@for %f in (gettext.h) do @copy ..\gnulib-local\lib\%f $(PREFIX)\share\gettext
 	@for %f in (javaversion.class) do @copy ..\gettext-tools\gnulib-lib\%f $(PREFIX)\share\gettext
 	@for %f in (msgunfmt.tcl) do @copy ..\gettext-tools\src\%f $(PREFIX)\share\gettext
-	@for %f in (Makefile.in.in Makevars.template Rules-quot) do @copy ..\gettext-tools\po\%f $(PREFIX)\share\gettext\po
+	@for %f in (Makefile.in.in Makevars.template Rules-quot insert-header.sed) do @copy ..\gettext-tools\po\%f $(PREFIX)\share\gettext\po
 	@for %f in (insert-headers remove-potcdate boldquot quot) do @copy ..\gettext-tools\po\%f.sed $(PREFIX)\share\gettext\po
 	@for %f in (boldquot quot) do @copy ..\gettext-tools\po\en@%f.header $(PREFIX)\share\gettext\po
 	@-for %d in (GNOME KDE TP) do @mkdir $(PREFIX)\share\gettext\projects\%d
@@ -594,21 +605,18 @@ install: all
 	@for %f in (index team-address) do @copy ..\gettext-tools\projects\%f $(PREFIX)\share\gettext\projects
 	@-mkdir $(PREFIX)\share\gettext\styles
 	@copy ..\gettext-tools\styles\po-*.css $(PREFIX)\share\gettext\styles
-	@-mkdir $(PREFIX)\share\gettext-$(GETTEXT_VERSION)
-	@for %x in (its loc) do @copy ..\gettext-tools\its\*.%x $(PREFIX)\share\gettext-$(GETTEXT_VERSION)
-	@-mkdir $(PREFIX)\share\emacs\site-lisp
-	@for %x in (el) do @copy ..\gettext-tools\emacs\*.%x $(PREFIX)\share\emacs\site-lisp
-	@-for %d in (gettext\csharpdoc libasprintf) do @mkdir $(PREFIX)\share\doc\%d
-	@-for %d in (aclocal) do @mkdir $(PREFIX)\share\gettext\%d
-	@for %f in (gettext iconv intlmacosx nls po progtest) do @copy ..\gettext-runtime\m4\%f.m4 $(PREFIX)\share\gettext\aclocal
-	@for %f in (ld link prefix) do @copy ..\gettext-runtime\gnulib-m4\lib-%f.m4 $(PREFIX)\share\gettext\aclocal
-	@for %f in (host-cpu-c-abi) do @copy ..\gettext-runtime\gnulib-m4\%f.m4 $(PREFIX)\share\gettext\aclocal
+	@-mkdir $(PREFIX)\share\gettext-$(GETTEXT_VERSION)\its
+	@for %x in (its loc) do @copy ..\gettext-tools\its\*.%x $(PREFIX)\share\gettext-$(GETTEXT_VERSION)\its
+	@-for %d in (gettext\csharpdoc libasprintf libtextstyle gettext\javadoc2\gnu\gettext) do @mkdir $(PREFIX)\share\doc\%d
 	@copy ..\gettext-runtime\man\*.3.html $(PREFIX)\share\doc\gettext
 	@copy ..\gettext-runtime\man\*.1.html $(PREFIX)\share\doc\gettext
+	@for %f in (..\gettext-runtime\man\*.1.html.in) do @copy %f $(PREFIX)\share\doc\gettext\%~nf
+	@for %d in (javadoc2 javadoc2\gnu\gettext) do @for %f in (..\gettext-runtime\intl-java\%d\*) do @copy %f $(PREFIX)\share\doc\gettext\%d
 	@copy ..\gettext-tools\man\*.1.html $(PREFIX)\share\doc\gettext
 	@copy ..\gettext-runtime\intl-csharp\doc\*.html $(PREFIX)\share\doc\gettext\csharpdoc
 	@copy ..\gettext-tools\doc\*.html $(PREFIX)\share\doc\gettext
 	@copy ..\gettext-runtime\libasprintf\autosprintf_all.html $(PREFIX)\share\doc\libasprintf
+	@copy ..\libtextstyle\doc\*.html $(PREFIX)\share\doc\libtextstyle
 	@-for %d in (runtime tools) do @for %l in (..\gettext-%d\po\*.po) do @mkdir $(PREFIX)\share\locale\%~nl\LC_MESSAGES
 	@-for %d in (runtime tools) do @for %l in (..\gettext-%d\po\*.po) do	\
 	 @vs$(VSVER)\$(CFG)\$(PLAT)\msgfmt.exe -c --statistics --verbose -o $(PREFIX)\share\locale\%~nl\LC_MESSAGES\gettext-%d.mo %l
