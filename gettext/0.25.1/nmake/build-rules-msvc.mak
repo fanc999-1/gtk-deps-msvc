@@ -210,11 +210,6 @@ $<
 $<
 <<
 
-{..\gettext-tools\gnulib-lib\uninorm\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
-	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
-$<
-<<
-
 {..\gettext-tools\gnulib-lib\uniconv\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
 	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
 $<
@@ -231,6 +226,11 @@ $<
 <<
 
 {..\gettext-tools\gnulib-lib\uniname\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
+	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
+$<
+<<
+
+{..\gettext-tools\gnulib-lib\uninorm\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\}.obj::
 	$(CC) $(GETTEXT_TOOLS_INCLUDES) $(GETTEXT_TOOLS_GNULIB_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettextlib\ /c @<<
 $<
 <<
@@ -256,13 +256,19 @@ $<
 $<
 <<
 
-{..\gettext-tools\libgrep\glthread\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\}.obj::
+{..\gettext-tools\libgrep\gnulib-lib\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ md vs$(VSVER)\$(CFG)\$(PLAT)\libgrep
 	$(CC) $(LIBGREP_INCLUDES) $(LIBGREP_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /c @<<
 $<
 <<
 
-{..\gettext-tools\libgrep\malloc\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\}.obj::
+{..\gettext-tools\libgrep\gnulib-lib\glthread\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ md vs$(VSVER)\$(CFG)\$(PLAT)\libgrep
+	$(CC) $(LIBGREP_INCLUDES) $(LIBGREP_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /c @<<
+$<
+<<
+
+{..\gettext-tools\libgrep\gnulib-lib\malloc\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ md vs$(VSVER)\$(CFG)\$(PLAT)\libgrep
 	$(CC) $(LIBGREP_INCLUDES) $(LIBGREP_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\libgrep\ /c @<<
 $<
@@ -280,6 +286,11 @@ $<
 <<
 
 {..\gettext-tools\libgettextpo\uniconv\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gnu\}.obj::
+	$(CC) $(GETTEXTPO_GNULIB_INCLUDES) $(LIBGETTEXTPO_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gnu\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gnu\ /c @<<
+$<
+<<
+
+{..\gettext-tools\libgettextpo\unicase\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gnu\}.obj::
 	$(CC) $(GETTEXTPO_GNULIB_INCLUDES) $(LIBGETTEXTPO_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gnu\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gnu\ /c @<<
 $<
 <<
@@ -352,6 +363,42 @@ $<
 $<
 <<
 
+# TreeSitter stuff...
+{..\gettext-tools\tree-sitter-d-$(TREESITTER_D_VER)\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /utf-8 /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+{..\gettext-tools\tree-sitter-go-$(TREESITTER_GO_VER)\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+{..\gettext-tools\tree-sitter-rust-$(TREESITTER_RUST_VER)\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+{..\gettext-tools\tree-sitter-typescript-$(TREESITTER_TS_VER)\typescript\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /I..\gettext-tools\tree-sitter-typescript-$(TREESITTER_TS_VER)\typescript\src /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+{..\gettext-tools\tree-sitter-typescript-$(TREESITTER_TS_VER)\tsx\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /I..\gettext-tools\tree-sitter-typescript-$(TREESITTER_TS_VER)\tsx\src /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\lib.obj: ..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\src\lib.c
+	@if not exist $(@D)\ md $(@D)
+	$(CC) /I$(**D)\..\include /I$(**D) $(GETTEXT_BASE_DEFINES) /Fo$(@D)\ /Fd$(@D)\ $** /c
+
+# For the various special cases for the tools in gettext-tools\src
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msggrep.obj: ..\gettext-tools\src\msggrep.c
 	@if not exist $(@D)\ md $(@D)
 	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGREP_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
@@ -359,6 +406,20 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msggrep.obj: ..\gettext-tools\src\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msginit.obj: ..\gettext-tools\src\msginit.c
 	@if not exist $(@D)\ md $(@D)
 	$(CC) $(LIBGETTEXTSRC_INCLUDES) /FIconfigmake.h $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-d.obj: ..\gettext-tools\src\x-d.c
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-go.obj: ..\gettext-tools\src\x-go.c
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-rust.obj: ..\gettext-tools\src\x-rust.c
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescript.obj: ..\gettext-tools\src\x-typescript.c
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescriptx.obj: ..\gettext-tools\src\x-typescriptx.c
+
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-d.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-go.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-rust.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescript.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescriptx.obj:
+	@if not exist $(@D)\ md $(@D)
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) /I..\gettext-tools\tree-sitter-0.23.2\lib\include $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
 # Rules for building .rc files
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res: ..\windows\gettext.rc
@@ -466,8 +527,7 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msgunfmt.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LI
 vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(msguniq_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe: $(INTL_LIB) $(GRT_LIB) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\ngettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
 vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(recode_sr_latin_OBJS)
-vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(xgettext_OBJS)
-
+vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(xgettext_OBJS) $(typesitter_OBJS)
 
 
 vs$(VSVER)\$(CFG)\$(PLAT)\envsubst.exe	\
@@ -486,9 +546,12 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msgmerge.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\msgunfmt.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe	\
-vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe	\
-vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe:
+vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe:
 	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib
+	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
+
+vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe:
+	link $(LDFLAGS) $(XGETTEXT_X64_LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
 vs$(VSVER)\$(CFG)\$(PLAT)\msggrep.exe:
@@ -580,6 +643,8 @@ clean:
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\*.res
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\*.pdb
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\*.obj
+	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gnu\*.obj
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\gnu\*.pdb
 	@-del /f /q vs$(VSVER)\$(CFG)\$(PLAT)\grt\*.obj

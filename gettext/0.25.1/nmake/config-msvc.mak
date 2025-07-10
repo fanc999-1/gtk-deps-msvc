@@ -157,12 +157,12 @@ GETTEXT_TOOLS_GNULIB_CFLAGS =	\
 	/DDLL_EXPORT
 
 LIBGREP_INCLUDES =	\
-	/I..\msvc\gettext-tools\libgrep	\
-	/I..\gettext-tools\libgrep	\
+	/I..\msvc\gettext-tools\libgrep\gnulib-lib	\
+	/I..\gettext-tools\libgrep\gnulib-lib	\
 	$(GETTEXT_TOOLS_INCLUDES)
 
 LIBGREP_CFLAGS =	\
-	$(GETTEXT_TOOLS_GNULIB_CFLAGS)	\
+	$(GETTEXT_RUNTIME_GNULIB_CFLAGS)	\
 	/DIN_GETTEXT_TOOLS_LIBGREP=1
 
 GETTEXTPO_GNULIB_INCLUDES =	\
@@ -201,6 +201,13 @@ LIBGETTEXTSRC_CFLAGS =	\
 	/DGETTEXTDATADIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/gettext\"	\
 	/DPROJECTSDIR=\"c:/vs$(PDBVER).0/$(PLAT)/share/gettext/projects\"
 
+# TreeSitter stuff (for xgettext)
+TREESITTER_VER = 0.23.2
+TREESITTER_D_VER = 0.8.2
+TREESITTER_GO_VER = 0.23.4
+TREESITTER_RUST_VER = $(TREESITTER_VER)
+TREESITTER_TS_VER = $(TREESITTER_VER)
+
 # We build the libintl DLL/LIB at least
 INTL_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\intl.lib
 INTL_GNULIB_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\intl-gnulib.lib
@@ -230,3 +237,7 @@ GETTEXT_RUNTIME_LIBS =	\
 	$(ASPRINTF_LIB)	\
 	$(INTL_LIB)	\
 	$(INTL_CS_DLL)
+
+!if "$(PLAT)" == "x64"
+XGETTEXT_X64_LDFLAGS = /STACK:4000000
+!endif
