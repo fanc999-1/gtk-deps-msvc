@@ -1,0 +1,9 @@
+--- a/gettext-tools/gnulib-lib/uninorm/nfc.c	2025-07-10 17:43:39.821507700 +0800
++++ b/gettext-tools/gnulib-lib/uninorm/nfc.c	2025-07-10 17:43:29.785244100 +0800
+@@ -27,5 +27,5 @@
+     NF_IS_COMPOSING,
+     uc_canonical_decomposition,
+     uc_composition,
+-    &uninorm_nfd
++    &uninorm_nfc
+   };
