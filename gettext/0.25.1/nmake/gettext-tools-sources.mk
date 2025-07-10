@@ -479,7 +479,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	..\gettext-tools\libgettextpo\xstrerror.c	\
 	..\gettext-tools\libgettextpo\xstriconv.c	\
 	..\gettext-tools\libgettextpo\xvasprintf.c	\
-	$(EXTRA_GNULIB_BASE_SRCS:..\gettext-tools\gnulib-lib\=..\gettext-tools\libgettextpo)
+	$(EXTRA_GNULIB_BASE_SRCS:..\gettext-tools\gnulib-lib\=..\gettext-tools\libgettextpo\)
 
 LIBGETTEXTPO_GNULIB_SRC_BASENAMES = $(LIBGETTEXTPO_GNULIB_SRCS:..\gettext-tools\libgettextpo\=)	
 
