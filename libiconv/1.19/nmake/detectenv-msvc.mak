@@ -95,8 +95,10 @@ VSVER = 14
 VSVER = 15
 !elseif $(VCVERSION) > 1919 && $(VCVERSION) < 1930
 VSVER = 16
-!elseif $(VCVERSION) > 1929 && $(VCVERSION) < 2000
+!elseif $(VCVERSION) > 1929 && $(VCVERSION) < 1950
 VSVER = 17
+!elseif $(VCVERSION) > 1949 && $(VCVERSION) < 2000
+VSVER = 18
 !else
 VSVER = 0
 !endif
@@ -110,7 +112,7 @@ PDBVER = 14
 !if "$(VSVER)" == "0"
 MSG = ^
 This NMake Makefile set supports Visual Studio^
-9 (2008) through 16 (2019).  Your Visual Studio^
+9 (2008) through 18 (2026).  Your Visual Studio^
 version is not supported.
 !error $(MSG)
 !endif
