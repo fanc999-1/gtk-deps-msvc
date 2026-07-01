@@ -224,7 +224,7 @@
 /* #undef HAVE_C_BOOL */
 
 /* Define to 1 if the static_assert keyword works. */
-#if (_MSC_VER > 1931)
+#if (_MSC_VER >= 1931)
 # define HAVE_C_STATIC_ASSERT 1
 #endif
 
