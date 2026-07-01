@@ -110,6 +110,7 @@ GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 	..\gettext-runtime\libasprintf\gnulib-lib\c32width.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\float.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\free.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\fseterr.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\hard-locale.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\localcharset.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\mbchar.c	\
@@ -123,7 +124,9 @@ GETTEXT_RUNTIME_ASPRINTF_GNULIB_SRCS =	\
 	..\gettext-runtime\libasprintf\gnulib-lib\printf-parse.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\setlocale_null-unlocked.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\setlocale_null.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\stdio-consolesafe.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\stdlib.c	\
+	..\gettext-runtime\libasprintf\gnulib-lib\string.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\unistd.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\vasnprintf.c	\
 	..\gettext-runtime\libasprintf\gnulib-lib\wctype-h.c	\
