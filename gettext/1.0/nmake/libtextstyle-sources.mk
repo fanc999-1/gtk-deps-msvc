@@ -3,6 +3,10 @@ EXTRA_LIBTEXTSTYLE_SRCS =	\
 	..\libtextstyle\lib\calloc.c	\
 	..\libtextstyle\lib\malloc.c
 !endif
+!if "$(PLAT)" == "arm64"
+EXTRA_LIBTEXTSTYLE_SRCS =	\
+	..\libtextstyle\lib\frexpl.c
+!endif
 
 LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\asnprintf.c	\
@@ -41,6 +45,7 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\file-ostream.c	\
 	..\libtextstyle\lib\float.c	\
 	..\libtextstyle\lib\free.c	\
+	..\libtextstyle\lib\fseterr.c	\
 	..\libtextstyle\lib\fstat.c	\
 	..\libtextstyle\lib\fsync.c	\
 	..\libtextstyle\lib\full-write.c	\
@@ -105,10 +110,12 @@ LIBTEXTSTYLE_BASE_SRCS =	\
 	..\libtextstyle\lib\stat-time.c	\
 	..\libtextstyle\lib\stat-w32.c	\
 	..\libtextstyle\lib\stat.c	\
+	..\libtextstyle\lib\stdio-consolesafe.c	\
 	..\libtextstyle\lib\stdlib.c	\
 	..\libtextstyle\lib\stpcpy.c	\
 	..\libtextstyle\lib\strerror-override.c	\
 	..\libtextstyle\lib\strerror.c	\
+	..\libtextstyle\lib\string.c	\
 	..\libtextstyle\lib\str_endswith.c	\
 	..\libtextstyle\lib\str_startswith.c	\
 	..\libtextstyle\lib\styled-ostream.c	\

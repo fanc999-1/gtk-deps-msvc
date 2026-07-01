@@ -123,7 +123,7 @@ NULL=
 !if [for %d in (libxml) do @for %c in (..\libtextstyle\lib\%d\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\libxml\%~nc.obj]
 !endif
 
-!if [for %d in (libcroco glib glthread unicase unictype unistr uniwidth) do @for %c in (..\libtextstyle\lib\%d\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~nc.obj]
+!if [for %d in (glib glthread libcroco unicase unictype unistr uniwidth) do @for %c in (..\libtextstyle\lib\%d\*.c) do @call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\%~nc.obj]
 !endif
 
 !if [@call create-lists.bat file libtextstyle-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\libtextstyle\libtextstyle.res]
