@@ -67,7 +67,7 @@ NULL=
 !if [for %c in ($(GETTEXT_RUNTIME_BASE_GNULIB_SRCS:..\gettext-runtime\gnulib-lib\=)) do @if "%~xc" == ".c" @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\grt\%~nc.obj]
 !endif
 
-!if [for %d in (malloc glthread unicase unictype unistr uniwidth) do @for %c in (..\gettext-runtime\intl\gnulib-lib\%d\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\intl-gnulib\%~nc.obj]
+!if [for %d in (glthread malloc unicase unictype unistr uniwidth) do @for %c in (..\gettext-runtime\intl\gnulib-lib\%d\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\intl-gnulib\%~nc.obj]
 !endif
 
 !if [call create-lists.bat footer gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak]

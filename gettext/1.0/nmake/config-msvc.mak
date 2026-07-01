@@ -208,6 +208,9 @@ TREESITTER_GO_VER = 0.23.4
 TREESITTER_RUST_VER = $(TREESITTER_VER)
 TREESITTER_TS_VER = $(TREESITTER_VER)
 
+# Common objects for printf_*gettext.exe
+PRINTF_COMMAND_OBJS = vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\printf-command.obj
+
 # We build the libintl DLL/LIB at least
 INTL_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\intl.lib
 INTL_GNULIB_LIB = vs$(VSVER)\$(CFG)\$(PLAT)\intl-gnulib.lib

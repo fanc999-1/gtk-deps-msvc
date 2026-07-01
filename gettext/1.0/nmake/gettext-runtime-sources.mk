@@ -147,6 +147,7 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\binary-io.c	\
 	..\gettext-runtime\gnulib-lib\c-ctype.c	\
 	..\gettext-runtime\gnulib-lib\c-strcasecmp.c	\
+	..\gettext-runtime\gnulib-lib\c-strtold.c	\
 	..\gettext-runtime\gnulib-lib\c32isalnum.c	\
 	..\gettext-runtime\gnulib-lib\c32isalpha.c	\
 	..\gettext-runtime\gnulib-lib\c32isblank.c	\
@@ -173,9 +174,11 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\fd-hook.c	\
 	..\gettext-runtime\gnulib-lib\float.c	\
 	..\gettext-runtime\gnulib-lib\free.c	\
+	..\gettext-runtime\gnulib-lib\fseterr.c	\
 	..\gettext-runtime\gnulib-lib\fstat.c	\
 	..\gettext-runtime\gnulib-lib\full-write.c	\
 	..\gettext-runtime\gnulib-lib\fwriteerror.c	\
+	..\gettext-runtime\gnulib-lib\fzprintf.c	\
 	..\gettext-runtime\gnulib-lib\getdtablesize.c	\
 	..\gettext-runtime\gnulib-lib\getlocalename_l-unsafe.c	\
 	..\gettext-runtime\gnulib-lib\getopt.c	\
@@ -183,6 +186,7 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\getprogname.c	\
 	..\gettext-runtime\gnulib-lib\hard-locale.c	\
 	..\gettext-runtime\gnulib-lib\ialloc.c	\
+	..\gettext-runtime\gnulib-lib\isinf.c	\
 	..\gettext-runtime\gnulib-lib\isnanf.c	\
 	..\gettext-runtime\gnulib-lib\isnanl.c	\
 	..\gettext-runtime\gnulib-lib\localcharset.c	\
@@ -209,6 +213,7 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\msvc-inval.c	\
 	..\gettext-runtime\gnulib-lib\msvc-nothrow.c	\
 	..\gettext-runtime\gnulib-lib\open.c	\
+	..\gettext-runtime\gnulib-lib\options.c	\
 	..\gettext-runtime\gnulib-lib\printf-args.c	\
 	..\gettext-runtime\gnulib-lib\printf-frexp.c	\
 	..\gettext-runtime\gnulib-lib\printf-frexpl.c	\
@@ -217,6 +222,7 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\progreloc.c	\
 	..\gettext-runtime\gnulib-lib\propername.c	\
 	..\gettext-runtime\gnulib-lib\pthread-once.c	\
+	..\gettext-runtime\gnulib-lib\quotearg.c	\
 	..\gettext-runtime\gnulib-lib\raise.c	\
 	..\gettext-runtime\gnulib-lib\rawmemchr.c	\
 	..\gettext-runtime\gnulib-lib\readlink.c	\
@@ -232,6 +238,7 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\stat-time.c	\
 	..\gettext-runtime\gnulib-lib\stat-w32.c	\
 	..\gettext-runtime\gnulib-lib\stat.c	\
+	..\gettext-runtime\gnulib-lib\stdio-consolesafe.c	\
 	..\gettext-runtime\gnulib-lib\stdio-write.c	\
 	..\gettext-runtime\gnulib-lib\stdlib.c	\
 	..\gettext-runtime\gnulib-lib\strerror-override.c	\
@@ -241,8 +248,11 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\string-buffer.c	\
 	..\gettext-runtime\gnulib-lib\string-desc-contains.c	\
 	..\gettext-runtime\gnulib-lib\string-desc.c	\
+	..\gettext-runtime\gnulib-lib\string.c	\
 	..\gettext-runtime\gnulib-lib\strnlen1.c	\
+	..\gettext-runtime\gnulib-lib\strtoll.c	\
 	..\gettext-runtime\gnulib-lib\strtoul.c	\
+	..\gettext-runtime\gnulib-lib\strtoull.c	\
 	..\gettext-runtime\gnulib-lib\trim.c	\
 	..\gettext-runtime\gnulib-lib\unistd.c	\
 	..\gettext-runtime\gnulib-lib\vasnprintf.c	\
@@ -261,4 +271,5 @@ GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\xstriconv.c	\
 	..\gettext-runtime\gnulib-lib\xstring-buffer-printf.c	\
 	..\gettext-runtime\gnulib-lib\xstring-buffer.c	\
+	..\gettext-runtime\gnulib-lib\xstrtold.c	\
 	$(EXTRA_GETTEXT_RUNTIME_GNULIB_SRCS)

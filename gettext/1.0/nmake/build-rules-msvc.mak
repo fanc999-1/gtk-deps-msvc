@@ -526,6 +526,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msgmerge.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LI
 vs$(VSVER)\$(CFG)\$(PLAT)\msgunfmt.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(msgunfmt_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(msguniq_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe: $(INTL_LIB) $(GRT_LIB) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\ngettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
+vs$(VSVER)\$(CFG)\$(PLAT)\printf_gettext.exe: $(INTL_LIB) $(GRT_LIB) $(PRINTF_COMMAND_OBJS) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\printf_gettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
+vs$(VSVER)\$(CFG)\$(PLAT)\printf_ngettext.exe: $(INTL_LIB) $(GRT_LIB) $(PRINTF_COMMAND_OBJS) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\printf_ngettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
 vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(recode_sr_latin_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(xgettext_OBJS) $(typesitter_OBJS)
 
@@ -546,6 +548,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msgmerge.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\msgunfmt.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe	\
+vs$(VSVER)\$(CFG)\$(PLAT)\printf_gettext.exe	\
+vs$(VSVER)\$(CFG)\$(PLAT)\printf_ngettext.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe:
 	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
