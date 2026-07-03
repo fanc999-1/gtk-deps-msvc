@@ -3,6 +3,9 @@ EXTRA_GNULIB_BASE_SRCS =	\
 	..\gettext-tools\gnulib-lib\calloc.c	\
 	..\gettext-tools\gnulib-lib\malloc.c
 !endif
+!if "$(PLAT)" == "arm64"
+EXTRA_GNULIB_BASE_SRCS = ..\gettext-tools\gnulib-lib\frexpl.c
+!endif
 
 GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\access.c	\
@@ -93,6 +96,7 @@ GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\fnmatch.c	\
 	..\gettext-tools\gnulib-lib\fopen.c	\
 	..\gettext-tools\gnulib-lib\free.c	\
+	..\gettext-tools\gnulib-lib\fseterr.c	\
 	..\gettext-tools\gnulib-lib\fstat.c	\
 	..\gettext-tools\gnulib-lib\fstatat.c	\
 	..\gettext-tools\gnulib-lib\fstrcmp.c	\
@@ -140,6 +144,7 @@ GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\isnand.c	\
 	..\gettext-tools\gnulib-lib\isnanf.c	\
 	..\gettext-tools\gnulib-lib\isnanl.c	\
+	..\gettext-tools\gnulib-lib\issymlink.c	\
 	..\gettext-tools\gnulib-lib\iswctype.c	\
 	..\gettext-tools\gnulib-lib\javacomp.c	\
 	..\gettext-tools\gnulib-lib\javaexec.c	\
@@ -184,6 +189,7 @@ GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\openat-proc.c	\
 	..\gettext-tools\gnulib-lib\openat.c	\
 	..\gettext-tools\gnulib-lib\opendir.c	\
+	..\gettext-tools\gnulib-lib\options.c	\
 	..\gettext-tools\gnulib-lib\pipe-filter-aux.c	\
 	..\gettext-tools\gnulib-lib\pipe-filter-ii.c	\
 	..\gettext-tools\gnulib-lib\pipe-safer.c	\
@@ -248,6 +254,7 @@ GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\stat-time.c	\
 	..\gettext-tools\gnulib-lib\stat-w32.c	\
 	..\gettext-tools\gnulib-lib\stat.c	\
+	..\gettext-tools\gnulib-lib\stdio-consolesafe.c	\
 	..\gettext-tools\gnulib-lib\stdio-write.c	\
 	..\gettext-tools\gnulib-lib\stdlib.c	\
 	..\gettext-tools\gnulib-lib\stpcpy.c	\
@@ -265,6 +272,7 @@ GETTEXT_LIB_BASE_FILES =	\
 	..\gettext-tools\gnulib-lib\string-buffer.c	\
 	..\gettext-tools\gnulib-lib\string-desc-contains.c	\
 	..\gettext-tools\gnulib-lib\string-desc.c	\
+	..\gettext-tools\gnulib-lib\string.c	\
 	..\gettext-tools\gnulib-lib\stripslash.c	\
 	..\gettext-tools\gnulib-lib\strnlen1.c	\
 	..\gettext-tools\gnulib-lib\strstr.c	\
