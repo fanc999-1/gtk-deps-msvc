@@ -42,7 +42,7 @@
 #  define char16_t gl_char16_t
 #  define char32_t gl_char32_t
 # endif
-# ../ucrt/uchar.h"
+# include "../ucrt/uchar.h"
 #endif
 
 #ifndef _GL_UCHAR_H

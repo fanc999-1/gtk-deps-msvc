@@ -69,7 +69,7 @@
    BeOS 5 has the functions but no <wctype.h>.  */
 /* The include_next requires a split double-inclusion guard.  */
 #if 1
-# ../ucrt/wctype.h"
+# include "../ucrt/wctype.h"
 #endif
 
 #ifndef _GL_WCTYPE_H

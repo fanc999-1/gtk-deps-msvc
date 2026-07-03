@@ -33,7 +33,7 @@
      In this situation, some of the functions are not yet declared, therefore
      we cannot provide the C++ aliases.  */
 
-# ../ucrt/signal.h"
+# include "../ucrt/signal.h"
 
 #else
 /* Normal invocation convention.  */

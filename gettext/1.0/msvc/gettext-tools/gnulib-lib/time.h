@@ -39,7 +39,7 @@
       && !defined __MINGW32__)                         \
      || defined _GL_TIME_H)
 
-# ../ucrt/time.h"
+# include "../ucrt/time.h"
 
 #else
 
@@ -51,7 +51,7 @@
 #  include <unistd.h>
 # endif
 
-# ../ucrt/time.h"
+# include "../ucrt/time.h"
 
 /* This file uses _GL_ATTRIBUTE_DEPRECATED, GNULIB_POSIXCHECK,
    HAVE_RAW_DECL_*.  */

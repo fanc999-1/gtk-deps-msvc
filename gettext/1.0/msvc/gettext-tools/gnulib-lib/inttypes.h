@@ -38,7 +38,7 @@
 #   define __STDC_FORMAT_MACROS 1
 #  endif
 
-#  ../ucrt/inttypes.h"
+#  include "../ucrt/inttypes.h"
 
 #  define _GL_FINISHED_INCLUDING_SYSTEM_INTTYPES_H
 # endif

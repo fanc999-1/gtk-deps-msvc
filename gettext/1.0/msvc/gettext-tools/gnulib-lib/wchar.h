@@ -74,7 +74,7 @@
    Some builds of uClibc lack it.  */
 /* The include_next requires a split double-inclusion guard.  */
 #if 1
-# ../ucrt/wchar.h"
+# include "../ucrt/wchar.h"
 #endif
 
 #ifndef _GL_WCHAR_H
