@@ -347,19 +347,19 @@ $<
 
 {..\gettext-tools\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ md vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools
-	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(GETTEXT_TOOLS_SRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
 $<
 <<
 
 {..\gettext-tools\woe32dll\}.cc{vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ md vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools
-	$(CXX) $(LIBGETTEXTSRC_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
+	$(CXX) $(LIBGETTEXTSRC_INCLUDES) $(GETTEXT_TOOLS_SRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
 $<
 <<
 
 {..\gettext-runtime\intl\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ md vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools
-	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(GETTEXT_TOOLS_SRC_CFLAGS) /Fovs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\ /c @<<
 $<
 <<
 
@@ -371,6 +371,12 @@ $<
 <<
 
 {..\gettext-tools\tree-sitter-go-$(TREESITTER_GO_VER)\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
+	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
+	$(CC) /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
+$<
+<<
+
+{..\gettext-tools\tree-sitter-ocaml-$(TREESITTER_OCAML_VER)\grammars\ocaml\src\}.c{vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\}.obj::
 	@if not exist vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ md vs$(VSVER)\$(CFG)\$(PLAT)\treesitter
 	$(CC) /I..\gettext-tools\tree-sitter-$(TREESITTER_VER)\lib\include $(GETTEXT_BASE_DEFINES) /Fovs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /Fdvs$(VSVER)\$(CFG)\$(PLAT)\treesitter\ /c @<<
 $<
@@ -401,11 +407,11 @@ vs$(VSVER)\$(CFG)\$(PLAT)\treesitter\lib.obj: ..\gettext-tools\tree-sitter-$(TRE
 # For the various special cases for the tools in gettext-tools\src
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msggrep.obj: ..\gettext-tools\src\msggrep.c
 	@if not exist $(@D)\ md $(@D)
-	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGREP_INCLUDES) $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) $(LIBGREP_INCLUDES) $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msginit.obj: ..\gettext-tools\src\msginit.c
 	@if not exist $(@D)\ md $(@D)
-	$(CC) $(LIBGETTEXTSRC_INCLUDES) /FIconfigmake.h $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) /FIconfigmake.h $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-d.obj: ..\gettext-tools\src\x-d.c
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-go.obj: ..\gettext-tools\src\x-go.c
@@ -415,11 +421,12 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescriptx.obj: ..\gettext-tool
 
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-d.obj	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-go.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-ocaml.obj	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-rust.obj	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescript.obj	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescriptx.obj:
 	@if not exist $(@D)\ md $(@D)
-	$(CC) $(LIBGETTEXTSRC_INCLUDES) /I..\gettext-tools\tree-sitter-0.23.2\lib\include $(LIBGETTEXTSRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) /I..\gettext-tools\tree-sitter-0.23.2\lib\include $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
 # Rules for building .rc files
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res: ..\windows\gettext.rc

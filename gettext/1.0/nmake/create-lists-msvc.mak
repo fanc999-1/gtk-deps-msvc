@@ -100,7 +100,7 @@ NULL=
 !if [call create-lists.bat header gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak gettext_runtime_tools]
 !endif
 
-!if [for %s in (..\gettext-runtime\src\*.c) do @call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\%~ns.exe]
+!if [for %s in (..\gettext-runtime\src\*.c) do @if not "%~ns" == "printf-command" call create-lists.bat file gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\%~ns.exe]
 !endif
 
 !if [call create-lists.bat footer gettext-runtime-objs-msvc$(VSVER)-$(PLAT).mak]
@@ -380,10 +380,13 @@ NULL=
 !if [for %s in (..\gettext-tools\tree-sitter-typescript-$(TREESITTER_VER)\lib\src\lib.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\treesitter\%~ns.obj]
 !endif
 
-!if [for %d in (d-$(TREESITTER_D_VER) go-$(TREESITTER_GO_VER) rust-$(TREESITTER_RUST_VER)) do @for %s in (..\gettext-tools\tree-sitter-%d\src\*.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\treesitter\%~ns.obj]
+!if [for %d in (d-$(TREESITTER_D_VER) go-$(TREESITTER_GO_VER) ocaml-$(TREESITTER_OCAML_VER) rust-$(TREESITTER_RUST_VER)) do @for %s in (..\gettext-tools\tree-sitter-%d\src\*.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\treesitter\%~ns.obj]
 !endif
 
 !if [for %d in (typescript tsx) do @for %s in (..\gettext-tools\tree-sitter-typescript-$(TREESITTER_TS_VER)\%d\src\*.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\treesitter\%~ns.obj]
+!endif
+
+!if [for %d in (grammars\ocaml) do @for %s in (..\gettext-tools\tree-sitter-ocaml-$(TREESITTER_OCAML_VER)\%d\src\*.c) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\treesitter\%~ns.obj]
 !endif
 
 !if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]

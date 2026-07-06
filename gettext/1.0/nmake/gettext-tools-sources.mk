@@ -539,7 +539,7 @@ COMMON_SRCS =	\
 	..\gettext-tools\src\str-list.c	\
 	..\gettext-tools\src\write-catalog.c	\
 	..\gettext-tools\src\write-po.c
-  
+
 LIBGETTEXTSRC_SRCS =	\
 	$(COMMON_SRCS)	\
 	$(FORMAT_SOURCES)	\
@@ -606,9 +606,7 @@ MSGGREP_SOURCES = ..\gettext-tools\src\msggrep.c
 
 MSGMERGE_SOURCES =	\
 	..\gettext-tools\src\msgmerge.c	\
-	..\gettext-tools\src\msgl-fsearch.c	\
-	..\gettext-tools\src\lang-table.c	\
-	..\gettext-tools\src\plural-count.c
+	..\gettext-tools\src\msgl-merge.c
 
 MSGUNFMT_SOURCES =	\
 	..\gettext-tools\src\msgunfmt.c	\
@@ -628,48 +626,48 @@ RECODE_SR_LATIN_SOURCES =	\
 XGETTEXT_SOURCES =	\
 	..\gettext-tools\woe32dll\c++xgettext.cc	\
 	..\gettext-tools\src\if-error.c	\
-	..\gettext-tools\src\xg-arglist-callshape.c	\
-	..\gettext-tools\src\xg-arglist-context.c	\
-	..\gettext-tools\src\xg-arglist-parser.c	\
-	..\gettext-tools\src\xg-check.c	\
-	..\gettext-tools\src\xg-encoding.c	\
-	..\gettext-tools\src\xg-formatstring.c	\
-	..\gettext-tools\src\xg-message.c	\
-	..\gettext-tools\src\xg-mixed-string.c	\
 	..\gettext-tools\src\xg-pos.c	\
-	..\gettext-tools\src\x-awk.c	\
-	..\gettext-tools\src\x-c.c	\
-	..\gettext-tools\src\x-csharp.c	\
-	..\gettext-tools\src\x-d.c	\
-	..\gettext-tools\src\x-desktop.c	\
-	..\gettext-tools\src\x-elisp.c	\
-	..\gettext-tools\src\x-java.c	\
-	..\gettext-tools\src\x-javascript.c	\
-	..\gettext-tools\src\x-librep.c	\
-	..\gettext-tools\src\x-lisp.c	\
-	..\gettext-tools\src\x-lua.c	\
-	..\gettext-tools\src\x-modula2.c	\
-	..\gettext-tools\src\x-go.c	\
-	..\gettext-tools\src\x-perl.c	\
-	..\gettext-tools\src\x-php.c	\
+	..\gettext-tools\src\xg-encoding.c	\
+	..\gettext-tools\src\xg-mixed-string.c	\
+	..\gettext-tools\src\xg-formatstring.c	\
+	..\gettext-tools\src\xg-arglist-context.c	\
+	..\gettext-tools\src\xg-arglist-callshape.c	\
+	..\gettext-tools\src\xg-arglist-parser.c	\
+	..\gettext-tools\src\xg-message.c	\
+	..\gettext-tools\src\xg-check.c	\
 	..\gettext-tools\src\x-po.c	\
+	..\gettext-tools\src\x-c.c	\
 	..\gettext-tools\src\x-python.c	\
-	..\gettext-tools\src\x-rst.c	\
-	..\gettext-tools\src\x-ruby.c	\
-	..\gettext-tools\src\x-rust.c	\
-	..\gettext-tools\src\x-scheme.c	\
-	..\gettext-tools\src\x-sh.c	\
-	..\gettext-tools\src\x-smalltalk.c	\
-	..\gettext-tools\src\x-tcl.c	\
+	..\gettext-tools\src\x-java.c	\
+	..\gettext-tools\src\x-csharp.c	\
+	..\gettext-tools\src\x-javascript.c	\
 	..\gettext-tools\src\x-typescript.c	\
 	..\gettext-tools\src\x-typescriptx.c	\
+	..\gettext-tools\src\x-scheme.c	\
+	..\gettext-tools\src\x-lisp.c	\
+	..\gettext-tools\src\x-elisp.c	\
+	..\gettext-tools\src\x-librep.c	\
+	..\gettext-tools\src\x-rust.c	\
+	..\gettext-tools\src\x-ruby.c	\
+	..\gettext-tools\src\x-sh.c	\
+	..\gettext-tools\src\x-awk.c	\
+	..\gettext-tools\src\x-lua.c	\
+	..\gettext-tools\src\x-modula2.c	\
+	..\gettext-tools\src\x-d.c	\
+	..\gettext-tools\src\x-ocaml.c	\
+	..\gettext-tools\src\x-smalltalk.c	\
 	..\gettext-tools\src\x-vala.c	\
-	..\gettext-tools\src\x-ycp.c
+	..\gettext-tools\src\x-tcl.c	\
+	..\gettext-tools\src\x-perl.c	\
+	..\gettext-tools\src\x-php.c	\
+	..\gettext-tools\src\x-ycp.c	\
+	..\gettext-tools\src\x-rst.c	\
+	..\gettext-tools\src\x-desktop.c	\
+	..\gettext-tools\src\x-go.c
 
 MSGINIT_SOURCES =	\
 	msginit.c	\
-	lang-table.c	\
-	plural-count.c	\
+	msgl-merge.c	\
 	..\gettext-runtime\intl\localealias.c
 
 GETTEXT_TOOLS_TOOLS =	\
