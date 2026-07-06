@@ -425,6 +425,43 @@ NULL=
 !if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
 !endif
 
+# Non-installed tools in gettext-tools\src
+!if [call create-lists.bat header gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak cldr_plurals_OBJS]
+!endif
+
+!if [for %s in ($(CLDR_PLURALS_SOURCES)) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\%~ns.obj ]
+!endif
+
+!if [@call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\gettext.res]
+!endif
+
+!if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
+!endif
+
+!if [call create-lists.bat header gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak hostname_OBJS]
+!endif
+
+!if [for %s in ($(HOSTNAME_SOURCES)) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\%~ns.obj ]
+!endif
+
+!if [@call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\gettext.res]
+!endif
+
+!if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
+!endif
+
+!if [call create-lists.bat header gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak urlget_OBJS]
+!endif
+
+!if [for %s in ($(URLGET_SOURCES)) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\%~ns.obj ]
+!endif
+
+!if [@call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\gettext.res]
+!endif
+
+!if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
+!endif
+
 !include gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak
 
 !if [del /f /q gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]

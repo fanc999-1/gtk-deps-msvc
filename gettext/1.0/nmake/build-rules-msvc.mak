@@ -518,6 +518,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\$(LIBTEXTSTYLE_DLL): $(libtextstyle_OBJS)
 # 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 vs$(VSVER)\$(CFG)\$(PLAT)\envsubst.exe: $(INTL_LIB) $(GRT_LIB) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\envsubst.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext.exe: $(INTL_LIB) $(GRT_LIB) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
+vs$(VSVER)\$(CFG)\$(PLAT)\cldr-plurals.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(cldr_plurals_OBJS)
+vs$(VSVER)\$(CFG)\$(PLAT)\hostname.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(hostname_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\msgattrib.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(msgattrib_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\msgcat.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(msgcat_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\msgcmp.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(INTL_LIB) $(msgcmp_OBJS)
@@ -537,9 +539,11 @@ vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe: $(INTL_LIB) $(GRT_LIB) vs$(VSVER)\$(CFG)
 vs$(VSVER)\$(CFG)\$(PLAT)\printf_gettext.exe: $(INTL_LIB) $(GRT_LIB) $(PRINTF_COMMAND_OBJS) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\printf_gettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
 vs$(VSVER)\$(CFG)\$(PLAT)\printf_ngettext.exe: $(INTL_LIB) $(GRT_LIB) $(PRINTF_COMMAND_OBJS) vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\printf_ngettext.obj vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res
 vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(recode_sr_latin_OBJS)
+vs$(VSVER)\$(CFG)\$(PLAT)\urlget.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(urlget_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(xgettext_OBJS) $(typesitter_OBJS)
 
 
+vs$(VSVER)\$(CFG)\$(PLAT)\cldr-plurals.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\envsubst.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\msgattrib.exe	\
@@ -559,9 +563,15 @@ vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\ngettext.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\printf_gettext.exe	\
 vs$(VSVER)\$(CFG)\$(PLAT)\printf_ngettext.exe	\
-vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe:
+vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe	\
+vs$(VSVER)\$(CFG)\$(PLAT)\urlget.exe:
 	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
+
+vs$(VSVER)\$(CFG)\$(PLAT)\hostname.exe:
+	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) $(WINSOCK2_LIB) -out:$@ /implib:$(@D)\unwanted.lib
+	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
+
 
 vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe:
 	link $(LDFLAGS) $(XGETTEXT_X64_LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib

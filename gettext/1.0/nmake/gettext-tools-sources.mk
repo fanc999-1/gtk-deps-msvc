@@ -673,6 +673,14 @@ MSGINIT_SOURCES =	\
 	msgl-merge.c	\
 	..\gettext-runtime\intl\localealias.c
 
+CLDR_PLURALS_SOURCES =	\
+	..\gettext-tools\src\cldr-plural.c	\
+	..\gettext-tools\src\cldr-plural-exp.c	\
+	..\gettext-tools\src\cldr-plurals.c
+
+HOSTNAME_SOURCES = ..\gettext-tools\src\hostname.c
+URLGET_SOURCES = ..\gettext-tools\src\urlget.c
+
 GETTEXT_TOOLS_TOOLS =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msgattrib.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msgcat.exe	\
@@ -691,3 +699,8 @@ GETTEXT_TOOLS_TOOLS =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe
+
+GETTEXT_TOOLS_TOOLS_NOINSTALL =	\
+	vs$(VSVER)\$(CFG)\$(PLAT)\cldr-plurals.exe	\
+	vs$(VSVER)\$(CFG)\$(PLAT)\hostname.exe	\
+	vs$(VSVER)\$(CFG)\$(PLAT)\urlget.exe
