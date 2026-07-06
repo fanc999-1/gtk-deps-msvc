@@ -338,28 +338,19 @@ GETTEXT_LIB_BASE_FILES =	\
 
 GNULIB_SRC_BASENAMES = $(GETTEXT_LIB_BASE_FILES:..\gettext-tools\gnulib-lib\=)
 
-!if "$(PLAT)" == "Win32"
-EXTRA_LIBGREP_GNULIB_SRCS =	\
-	..\gettext-tools\libgrep\gnulib-lib\malloc.c
-!endif
-
 LIBGREP_GNULIB_BASE_SOURCES =	\
-	..\gettext-tools\libgrep\gnulib-lib\btowc.c	\
-	..\gettext-tools\libgrep\gnulib-lib\iswctype.c	\
+	..\gettext-tools\libgrep\gnulib-lib\kwset.c	\
 	..\gettext-tools\libgrep\gnulib-lib\mbrlen.c	\
-	..\gettext-tools\libgrep\gnulib-lib\mbszero.c	\
+	..\gettext-tools\libgrep\gnulib-lib\memchr2.c	\
 	..\gettext-tools\libgrep\gnulib-lib\nl_langinfo.c	\
-	..\gettext-tools\libgrep\gnulib-lib\pthread-once.c	\
 	..\gettext-tools\libgrep\gnulib-lib\regex.c	\
 	..\gettext-tools\libgrep\gnulib-lib\stdlib.c	\
+	..\gettext-tools\libgrep\gnulib-lib\string.c	\
 	..\gettext-tools\libgrep\gnulib-lib\unistd.c	\
 	..\gettext-tools\libgrep\gnulib-lib\wcrtomb.c	\
-	..\gettext-tools\libgrep\gnulib-lib\wctype-h.c	\
-	..\gettext-tools\libgrep\gnulib-lib\wctype.c	\
-	$(EXTRA_LIBGREP_GNULIB_SRCS)
+	..\gettext-tools\libgrep\gnulib-lib\wctype-h.c
 
 LIBGREP_SOURCES =	\
-	..\gettext-tools\libgrep\kwset.c	\
 	..\gettext-tools\libgrep\m-fgrep.c	\
 	..\gettext-tools\libgrep\m-regex.c
 
