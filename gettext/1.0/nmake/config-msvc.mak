@@ -26,6 +26,30 @@ ICONV_LIBDIR=$(ICONV_DIR)\lib
 !ifndef ICONV_BINDIR
 ICONV_BINDIR=$(ICONV_DIR)\bin
 !endif
+!ifndef JSON_C_DIR
+JSON_C_DIR=$(PREFIX)
+!endif
+!ifndef JSON_C_INCLUDEDIR
+JSON_C_INCLUDEDIR=$(JSON_C_DIR)\include
+!endif
+!ifndef JSON_C_LIBDIR
+JSON_C_LIBDIR=$(JSON_C_DIR)\lib
+!endif
+!ifndef JSON_C_BINDIR
+JSON_C_BINDIR=$(JSON_C_DIR)\bin
+!endif
+!ifndef CURL_DIR
+CURL_DIR=$(PREFIX)
+!endif
+!ifndef CURL_INCLUDEDIR
+CURL_INCLUDEDIR=$(CURL_DIR)\include
+!endif
+!ifndef CURL_LIBDIR
+CURL_LIBDIR=$(CURL_DIR)\lib
+!endif
+!ifndef CURL_BINDIR
+CURL_BINDIR=$(CURL_DIR)\bin
+!endif
 
 # For Windows 10 or later
 GETTEXT_BASE_DEFINES =	\
@@ -75,8 +99,12 @@ GETTEXT_RUNTIME_GNULIB_CFLAGS =	\
 GETTEXT_RUNTIME_DEP_LIBS = iconv.lib advapi32.lib
 WINSOCK2_LIB = ws2_32.lib
 
+CURL_LIB = libcurl.lib
+JSON_C_LIB = json-c.lib
+
 TEXTSTYLE_DEP_LIBS = $(WINSOCK2_LIB) $(GETTEXT_RUNTIME_DEP_LIBS)
 GETTEXTLIB_DEP_LIBS = bcrypt.lib $(TEXTSTYLE_DEP_LIBS)
+SPIT_EXTRA_LDFLAGS = /libpath:$(CURL_LIBDIR) $(CURL_LIB) /libpath:$(JSON_C_LIBDIR) $(JSON_C_LIB)
 
 FORCED_INCLUDED_HEADERS =	\
 	/FIarg-nonnull.h	\

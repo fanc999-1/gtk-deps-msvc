@@ -413,6 +413,8 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\msginit.obj: ..\gettext-tools\src\
 	@if not exist $(@D)\ md $(@D)
 	$(CC) $(LIBGETTEXTSRC_INCLUDES) /FIconfigmake.h $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\country-table.obj: ..\gettext-tools\src\country-table.c
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\spit.obj: ..\gettext-tools\src\spit.c
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-d.obj: ..\gettext-tools\src\x-d.c
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-go.obj: ..\gettext-tools\src\x-go.c
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-rust.obj: ..\gettext-tools\src\x-rust.c
@@ -427,6 +429,11 @@ vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescript.obj	\
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\x-typescriptx.obj:
 	@if not exist $(@D)\ md $(@D)
 	$(CC) $(LIBGETTEXTSRC_INCLUDES) /I..\gettext-tools\tree-sitter-0.23.2\lib\include $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
+
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\country-table.obj	\
+vs$(VSVER)\$(CFG)\$(PLAT)\gettext-tools-tools\spit.obj:
+	@if not exist $(@D)\ md $(@D)
+	$(CC) $(LIBGETTEXTSRC_INCLUDES) /I$(CURL_INCLUDEDIR) /I$(JSON_C_INCLUDEDIR)\json-c $(GETTEXT_TOOLS_SRC_CFLAGS) /Fo$@ /Fd$(@D)\ /c $**
 
 # Rules for building .rc files
 vs$(VSVER)\$(CFG)\$(PLAT)\gettext-runtime-tools\gettext.res: ..\windows\gettext.rc
@@ -541,6 +548,7 @@ vs$(VSVER)\$(CFG)\$(PLAT)\printf_ngettext.exe: $(INTL_LIB) $(GRT_LIB) $(PRINTF_C
 vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(recode_sr_latin_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\urlget.exe: $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(urlget_OBJS)
 vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(xgettext_OBJS) $(typesitter_OBJS)
+vs$(VSVER)\$(CFG)\$(PLAT)\spit.exe: $(GETTEXTSRC_LIB) $(GETTEXTLIB_LIB) $(LIBTEXTSTYLE_LIB) $(INTL_LIB) $(spit_OBJS)
 
 
 vs$(VSVER)\$(CFG)\$(PLAT)\cldr-plurals.exe	\
@@ -572,13 +580,16 @@ vs$(VSVER)\$(CFG)\$(PLAT)\hostname.exe:
 	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) $(WINSOCK2_LIB) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
-
 vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe:
 	link $(LDFLAGS) $(XGETTEXT_X64_LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
 vs$(VSVER)\$(CFG)\$(PLAT)\msggrep.exe:
 	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) $(MSVCPRT_LIB) -out:$@ /implib:$(@D)\unwanted.lib
+	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
+
+vs$(VSVER)\$(CFG)\$(PLAT)\spit.exe:
+	link $(LDFLAGS) $** $(GETTEXT_RUNTIME_DEP_LIBS) $(SPIT_EXTRA_LDFLAGS) -out:$@ /implib:$(@D)\unwanted.lib
 	@-if exist $@.manifest mt /manifest $@.manifest /outputresource:$@;1
 
 # Other .obj files requiring individual attention, that could not be covered by the inference rules.

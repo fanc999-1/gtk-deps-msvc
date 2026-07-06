@@ -669,8 +669,8 @@ XGETTEXT_SOURCES =	\
 	..\gettext-tools\src\x-go.c
 
 MSGINIT_SOURCES =	\
-	msginit.c	\
-	msgl-merge.c	\
+	..\gettext-tools\src\msginit.c	\
+	..\gettext-tools\src\msgl-merge.c	\
 	..\gettext-runtime\intl\localealias.c
 
 CLDR_PLURALS_SOURCES =	\
@@ -680,6 +680,10 @@ CLDR_PLURALS_SOURCES =	\
 
 HOSTNAME_SOURCES = ..\gettext-tools\src\hostname.c
 URLGET_SOURCES = ..\gettext-tools\src\urlget.c
+
+SPIT_SOURCES =	\
+	..\gettext-tools\src\country-table.c	\
+	..\gettext-tools\src\spit.c
 
 GETTEXT_TOOLS_TOOLS =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msgattrib.exe	\
@@ -699,6 +703,10 @@ GETTEXT_TOOLS_TOOLS =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\xgettext.exe
+
+!ifdef BUILD_SPIT
+GETTEXT_TOOLS_TOOLS = $(GETTEXT_TOOLS_TOOLS) vs$(VSVER)\$(CFG)\$(PLAT)\spit.exe
+!endif
 
 GETTEXT_TOOLS_TOOLS_NOINSTALL =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\cldr-plurals.exe	\
