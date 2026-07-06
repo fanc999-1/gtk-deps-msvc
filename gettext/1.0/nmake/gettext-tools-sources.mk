@@ -608,6 +608,9 @@ MSGMERGE_SOURCES =	\
 	..\gettext-tools\src\msgmerge.c	\
 	..\gettext-tools\src\msgl-merge.c
 
+MSGPRE_SOURCES =	\
+	..\gettext-tools\src\msgpre.c
+
 MSGUNFMT_SOURCES =	\
 	..\gettext-tools\src\msgunfmt.c	\
 	..\gettext-tools\src\read-csharp.c	\
@@ -683,6 +686,7 @@ GETTEXT_TOOLS_TOOLS =	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msggrep.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msginit.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msgmerge.exe	\
+	vs$(VSVER)\$(CFG)\$(PLAT)\msgpre.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msgunfmt.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\msguniq.exe	\
 	vs$(VSVER)\$(CFG)\$(PLAT)\recode-sr-latin.exe	\

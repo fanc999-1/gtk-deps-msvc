@@ -338,6 +338,15 @@ NULL=
 !if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
 !endif
 
+!if [call create-lists.bat header gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak msgpre_OBJS]
+!endif
+
+!if [for %s in ($(MSGPRE_SOURCES)) do @call create-lists.bat file gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak vs^$(VSVER)\^$(CFG)\^$(PLAT)\gettext-tools-tools\%~ns.obj ]
+!endif
+
+!if [call create-lists.bat footer gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak]
+!endif
+
 !if [call create-lists.bat header gettext-tools-objs-msvc$(VSVER)-$(PLAT).mak msgunfmt_OBJS]
 !endif
 
