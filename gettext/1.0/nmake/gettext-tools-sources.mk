@@ -511,6 +511,7 @@ FORMAT_SOURCES =	\
 	..\gettext-tools\src\format-lisp.c	\
 	..\gettext-tools\src\format-lua.c	\
 	..\gettext-tools\src\format-modula2.c	\
+	..\gettext-tools\src\format-ocaml.c	\
 	..\gettext-tools\src\format-pascal.c	\
 	..\gettext-tools\src\format-perl-brace.c	\
 	..\gettext-tools\src\format-perl.c	\
@@ -522,6 +523,7 @@ FORMAT_SOURCES =	\
 	..\gettext-tools\src\format-ruby.c	\
 	..\gettext-tools\src\format-rust.c	\
 	..\gettext-tools\src\format-scheme.c	\
+	..\gettext-tools\src\format-sh-printf.c	\
 	..\gettext-tools\src\format-sh.c	\
 	..\gettext-tools\src\format-smalltalk.c	\
 	..\gettext-tools\src\format-tcl.c	\
@@ -529,103 +531,56 @@ FORMAT_SOURCES =	\
 
 COMMON_SRCS =	\
 	..\gettext-tools\src\message.c	\
-	..\gettext-tools\src\pos.c	\
-	..\gettext-tools\src\po-error.c	\
-	..\gettext-tools\src\read-catalog-abstract.c	\
+	..\gettext-tools\src\msgl-ascii.c	\
+	..\gettext-tools\src\msgl-check.c	\
+	..\gettext-tools\src\plural-eval.c	\
+	..\gettext-tools\src\plural-exp.c	\
+	..\gettext-tools\src\plural-table.c	\
 	..\gettext-tools\src\po-charset.c	\
-	..\gettext-tools\src\read-po.c	\
+	..\gettext-tools\src\pos.c	\
+	..\gettext-tools\src\read-catalog-abstract.c	\
+	..\gettext-tools\src\read-catalog-special.c	\
+	..\gettext-tools\src\read-catalog.c	\
 	..\gettext-tools\src\read-po-gram.c	\
 	..\gettext-tools\src\read-po-lex.c	\
-	..\gettext-tools\src\read-properties.c	\
-	..\gettext-tools\src\read-stringtable.c	\
-	..\gettext-tools\src\open-catalog.c	\
-	..\gettext-tools\src\dir-list.c	\
-	..\gettext-tools\src\str-list.c
+	..\gettext-tools\src\read-po.c	\
+	..\gettext-tools\src\sentence.c	\
+	..\gettext-tools\src\str-list.c	\
+	..\gettext-tools\src\write-catalog.c	\
+	..\gettext-tools\src\write-po.c
   
 LIBGETTEXTSRC_SRCS =	\
 	$(COMMON_SRCS)	\
 	$(FORMAT_SOURCES)	\
+	..\gettext-tools\src\dir-list.c	\
 	..\gettext-tools\src\file-list.c	\
 	..\gettext-tools\src\its.c	\
+	..\gettext-tools\src\lang-table.c	\
 	..\gettext-tools\src\locating-rules.c	\
-	..\gettext-tools\src\msgl-ascii.c	\
 	..\gettext-tools\src\msgl-cat.c	\
 	..\gettext-tools\src\msgl-charset.c	\
-	..\gettext-tools\src\msgl-check.c	\
 	..\gettext-tools\src\msgl-english.c	\
 	..\gettext-tools\src\msgl-equal.c	\
+	..\gettext-tools\src\msgl-fsearch.c	\
 	..\gettext-tools\src\msgl-header.c	\
 	..\gettext-tools\src\msgl-iconv.c	\
 	..\gettext-tools\src\msgl-ofn.c	\
-	..\gettext-tools\src\plural-eval.c	\
-	..\gettext-tools\src\plural-exp.c	\
-	..\gettext-tools\src\plural-table.c	\
+	..\gettext-tools\src\open-catalog.c	\
+	..\gettext-tools\src\plural-count.c	\
+	..\gettext-tools\src\po-error.c	\
 	..\gettext-tools\src\po-time.c	\
 	..\gettext-tools\src\read-catalog-file.c	\
-	..\gettext-tools\src\read-catalog-special.c	\
-	..\gettext-tools\src\read-catalog.c	\
 	..\gettext-tools\src\read-desktop.c	\
+	..\gettext-tools\src\read-properties.c	\
+	..\gettext-tools\src\read-stringtable.c	\
 	..\gettext-tools\src\search-path.c	\
-	..\gettext-tools\src\sentence.c	\
-	..\gettext-tools\src\write-catalog.c	\
-	..\gettext-tools\src\write-po.c	\
 	..\gettext-tools\src\write-properties.c	\
 	..\gettext-tools\src\write-stringtable.c	\
 	..\gettext-tools\woe32dll\c++xerror-handler.cc
 
 LIBGETTEXTPO_AUX_SRCS =	\
-	..\gettext-tools\src\str-list.c \
-	..\gettext-tools\src\message.c \
-	..\gettext-tools\src\pos.c \
-	..\gettext-tools\src\msgl-ascii.c \
-	..\gettext-tools\src\write-catalog.c \
-	..\gettext-tools\src\write-po.c \
-	..\gettext-tools\src\po-charset.c \
-	..\gettext-tools\src\read-catalog-special.c \
-	..\gettext-tools\src\read-catalog-abstract.c \
-	..\gettext-tools\src\read-catalog.c \
-	..\gettext-tools\src\read-po.c \
-	..\gettext-tools\src\read-po-lex.c \
-	..\gettext-tools\src\read-po-gram.c \
-	..\gettext-tools\src\plural-table.c \
-	..\gettext-tools\src\format-c.c \
-	..\gettext-tools\src\format-c++-brace.c \
-	..\gettext-tools\src\format-python.c \
-	..\gettext-tools\src\format-python-brace.c \
-	..\gettext-tools\src\format-java.c \
-	..\gettext-tools\src\format-java-printf.c \
-	..\gettext-tools\src\format-csharp.c \
-	..\gettext-tools\src\format-javascript.c \
-	..\gettext-tools\src\format-scheme.c \
-	..\gettext-tools\src\format-lisp.c \
-	..\gettext-tools\src\format-elisp.c \
-	..\gettext-tools\src\format-librep.c \
-	..\gettext-tools\src\format-rust.c \
-	..\gettext-tools\src\format-go.c \
-	..\gettext-tools\src\format-ruby.c \
-	..\gettext-tools\src\format-sh.c \
-	..\gettext-tools\src\format-awk.c \
-	..\gettext-tools\src\format-lua.c \
-	..\gettext-tools\src\format-pascal.c \
-	..\gettext-tools\src\format-modula2.c \
-	..\gettext-tools\src\format-d.c \
-	..\gettext-tools\src\format-smalltalk.c \
-	..\gettext-tools\src\format-qt.c \
-	..\gettext-tools\src\format-qt-plural.c \
-	..\gettext-tools\src\format-kde.c \
-	..\gettext-tools\src\format-kde-kuit.c \
-	..\gettext-tools\src\format-boost.c \
-	..\gettext-tools\src\format-tcl.c \
-	..\gettext-tools\src\format-perl.c \
-	..\gettext-tools\src\format-perl-brace.c \
-	..\gettext-tools\src\format-php.c \
-	..\gettext-tools\src\format-gcc-internal.c \
-	..\gettext-tools\src\format-gfc-internal.c \
-	..\gettext-tools\src\format.c \
-	..\gettext-tools\src\plural-exp.c \
-	..\gettext-tools\src\plural-eval.c \
-	..\gettext-tools\src\msgl-check.c \
-	..\gettext-tools\src\sentence.c
+	$(COMMON_SRCS)	\
+	$(FORMAT_SOURCES)
 
 MSGATTRIB_SOURCES = ..\gettext-tools\src\msgattrib.c
 MSGCAT_SOURCES = ..\gettext-tools\src\msgcat.c
