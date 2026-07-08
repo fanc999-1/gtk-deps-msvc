@@ -389,6 +389,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	..\gettext-tools\libgettextpo\float.c	\
 	..\gettext-tools\libgettextpo\fopen.c	\
 	..\gettext-tools\libgettextpo\free.c	\
+	..\gettext-tools\libgettextpo\fseterr.c	\
 	..\gettext-tools\libgettextpo\fstat.c	\
 	..\gettext-tools\libgettextpo\fstrcmp.c	\
 	..\gettext-tools\libgettextpo\fsync.c	\
@@ -442,6 +443,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	..\gettext-tools\libgettextpo\stat-time.c	\
 	..\gettext-tools\libgettextpo\stat-w32.c	\
 	..\gettext-tools\libgettextpo\stat.c	\
+	..\gettext-tools\libgettextpo\stdio-consolesafe.c	\
 	..\gettext-tools\libgettextpo\stdio-write.c	\
 	..\gettext-tools\libgettextpo\stdlib.c	\
 	..\gettext-tools\libgettextpo\stpcpy.c	\
@@ -455,6 +457,7 @@ LIBGETTEXTPO_GNULIB_SRCS =	\
 	..\gettext-tools\libgettextpo\striconveha.c	\
 	..\gettext-tools\libgettextpo\string-desc-contains.c	\
 	..\gettext-tools\libgettextpo\string-desc.c	\
+	..\gettext-tools\libgettextpo\string.c	\
 	..\gettext-tools\libgettextpo\strstr.c	\
 	..\gettext-tools\libgettextpo\str_startswith.c	\
 	..\gettext-tools\libgettextpo\unistd.c	\
