@@ -139,6 +139,10 @@ EXTRA_GETTEXT_RUNTIME_GNULIB_SRCS = \
 	..\gettext-runtime\gnulib-lib\malloc.c
 !endif
 
+!if "$(PLAT)" == "arm64"
+EXTRA_GETTEXT_RUNTIME_GNULIB_SRCS = ..\gettext-runtime\gnulib-lib\frexpl.c
+!endif
+
 GETTEXT_RUNTIME_BASE_GNULIB_SRCS =	\
 	..\gettext-runtime\gnulib-lib\allocator.c	\
 	..\gettext-runtime\gnulib-lib\areadlink.c	\
