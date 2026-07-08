@@ -1711,7 +1711,7 @@ _GL_WARN_ON_USE_CXX (frexp,
      If x is zero: mantissa = x, exp = 0.
      If x is infinite or NaN: mantissa = x, exp unspecified.
    Store exp in *EXPPTR and return mantissa.  */
-#if 1 && 0
+#ifdef _M_ARM64
 # if !(defined __cplusplus && defined GNULIB_NAMESPACE)
 #  undef frexpl
 #  define frexpl rpl_frexpl
