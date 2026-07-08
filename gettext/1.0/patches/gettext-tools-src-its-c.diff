@@ -1,0 +1,28 @@
+--- a/gettext-tools/src/its.c	2025-07-09 18:20:26.641368200 +0800
++++ b/gettext-tools/src/its.c	2025-07-09 18:13:41.438677100 +0800
+@@ -23,6 +23,11 @@
+ /* Specification.  */
+ #include "its.h"
+ 
++/* we need to do this to import xmlFree properly from the libgettextlib DLL */
++#ifdef _MSC_VER
++# undef LIBXML_STATIC
++#endif
++
+ #include <assert.h>
+ #include <errno.h>
+ #include <stdint.h>
+--- a/gettext-tools/src/locating-rules.c	2025-07-09 18:20:08.928165400 +0800
++++ b/gettext-tools/src/locating-rules.c	2025-07-09 18:19:52.957091400 +0800
+@@ -20,6 +20,11 @@
+ # include <config.h>
+ #endif
+ 
++/* we need to do this to import xmlFree properly from the libgettextlib DLL */
++#ifdef _MSC_VER
++# undef LIBXML_STATIC
++#endif
++
+ /* Specification.  */
+ #include "locating-rules.h"
+ 
