@@ -11,7 +11,7 @@
 # define GETTEXT_ARCH "Win32"
 #endif
 
-#define PREFIX "c:/vs14.0" GETTEXT_ARCH
+#define PREFIX "c:/vs14.0/" GETTEXT_ARCH
 #define EXEC_PREFIX PREFIX
 #define BINDIR PREFIX "/bin"
 #define SBINDIR PREFIX "/sbin"
