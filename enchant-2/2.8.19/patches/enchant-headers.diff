@@ -1,0 +1,312 @@
+--- a/lib/enchant.h	2025-07-23 05:13:04.000000000 +0800
++++ b/lib/enchant.h	2026-07-16 18:04:05.915779100 +0800
+@@ -33,6 +33,11 @@
+ #include <stdint.h> /* for uint32_t */
+ #include <sys/types.h> /* for size_t, ssize_t */
+ 
++#if defined (_MSC_VER) && defined (_ENCHANT_BUILD) && defined (DLL_EXPORT)
++# define ENCHANT_API __declspec (dllexport)
++#else
++# define ENCHANT_API
++#endif
+ 
+ #ifdef __cplusplus
+ extern "C" {
+@@ -41,6 +46,7 @@
+ typedef struct _EnchantBroker EnchantBroker;
+ typedef struct _EnchantDict   EnchantDict;
+ 
++ENCHANT_API
+ const char *enchant_get_version (void);
+ 
+ /**
+@@ -54,6 +60,7 @@
+  * Returns: A new broker object capable of requesting
+  * dictionaries from providers.
+  */
++ENCHANT_API
+ EnchantBroker *enchant_broker_init (void);
+ 
+ /**
+@@ -62,6 +69,7 @@
+  *
+  * Destroys the broker object. Must only be called once per broker init
+  */
++ENCHANT_API
+ void enchant_broker_free (EnchantBroker * broker);
+ 
+ /**
+@@ -73,6 +81,7 @@
+  * Returns: An #EnchantDict, or %null if no suitable dictionary could be found.
+  * The default personal wordlist file is used.
+  */
++ENCHANT_API
+ EnchantDict *enchant_broker_request_dict (EnchantBroker * broker, const char *const tag);
+ 
+ /**
+@@ -87,6 +96,7 @@
+  * Returns: An #EnchantDict, or %null if no suitable dictionary could be
+  * found, or if the PWL could not be opened.
+  */
++ENCHANT_API
+ EnchantDict *enchant_broker_request_dict_with_pwl (EnchantBroker * broker, const char *const tag, const char *pwl);
+ 
+ /**
+@@ -96,6 +106,7 @@
+  * Returns: An #EnchantDict, or %null if no suitable dictionary could be
+  * found, or if the PWL could not be opened.
+  */
++ENCHANT_API
+ EnchantDict *enchant_broker_request_pwl_dict (EnchantBroker * broker, const char *const pwl);
+ 
+ /**
+@@ -106,6 +117,7 @@
+  * Frees the dictionary when you are finished with it. Must be called at
+  * most once per #EnchantDict.
+  */
++ENCHANT_API
+ void enchant_broker_free_dict (EnchantBroker * broker, EnchantDict * dict);
+ 
+ /**
+@@ -116,6 +128,7 @@
+  *
+  * Returns: 1 if the dictionary exists, and 0 otherwise.
+  */
++ENCHANT_API
+ int enchant_broker_dict_exists (EnchantBroker * broker, const char * const tag);
+ 
+ /**
+@@ -127,6 +140,7 @@
+  * Declares a preference of dictionaries to use for the language
+  * referred to by @tag; see enchant(5) for more details.
+  */
++ENCHANT_API
+ void enchant_broker_set_ordering (EnchantBroker * broker,
+ 				  const char * const tag,
+ 				  const char * const ordering);
+@@ -139,6 +153,7 @@
+  * WARNING: error is transient and is likely cleared as soon as the
+  * next broker operation happens.
+  */
++ENCHANT_API
+ const char *enchant_broker_get_error (EnchantBroker * broker);
+ 
+ /**
+@@ -165,6 +180,7 @@
+  * Enumerates the Enchant providers and tells you some rudimentary
+  * information about them.
+  */
++ENCHANT_API
+ void enchant_broker_describe (EnchantBroker * broker,
+ 			      EnchantBrokerDescribeFn fn,
+ 			      void * user_data);
+@@ -178,6 +194,7 @@
+  * Returns: 0 if the word is correctly spelled, positive if not, negative on
+  * invalid arguments or other error.
+  */
++ENCHANT_API
+ int enchant_dict_check (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -191,6 +208,7 @@
+  * Returns: A %null terminated list of suggestions, or %null if any of the
+  * pre-conditions is not met, or an error occurs.
+  */
++ENCHANT_API
+ char **enchant_dict_suggest (EnchantDict * dict, const char *const word,
+ 			     ssize_t len, size_t * out_n_suggs);
+ 
+@@ -203,6 +221,7 @@
+  * The word is also added to the session. The word is removed from the exclude
+  * dictionary if present there.
+  */
++ENCHANT_API
+ void enchant_dict_add (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -211,6 +230,7 @@
+  * @word: The non-null word you wish to add to this session
+  * @len: The length of @word in bytes, or -1 for strlen(@word)
+  */
++ENCHANT_API
+ void enchant_dict_add_to_session (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -222,6 +242,7 @@
+  *
+  * The word is also removed from the session.
+  */
++ENCHANT_API
+ void enchant_dict_remove (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -230,6 +251,7 @@
+  * @word: The non-null word you wish to exclude from this session
+  * @len: The length of @word in bytes, or -1 for strlen(@word)
+  */
++ENCHANT_API
+ void enchant_dict_remove_from_session (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -240,6 +262,7 @@
+  *
+  * Returns: 1 if the word is valid in the session, 0 if not.
+  */
++ENCHANT_API
+ int enchant_dict_is_added (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -252,6 +275,7 @@
+  * not; that is, it is in the exclude dictionary or in the session exclude
+  * list, and has not been added to the session include list.
+  */
++ENCHANT_API
+ int enchant_dict_is_removed (EnchantDict * dict, const char *const word, ssize_t len);
+ 
+ /**
+@@ -265,6 +289,7 @@
+  * Deprecated: 2.5.0: does nothing; the API is retained only for backwards
+  * compatibility.
+  */
++ENCHANT_API
+ void enchant_dict_store_replacement (EnchantDict * dict,
+ 				     const char *const mis, ssize_t mis_len,
+ 				     const char *const cor, ssize_t cor_len);
+@@ -276,6 +301,7 @@
+  *
+  * Releases the string list.
+  */
++ENCHANT_API
+ void enchant_dict_free_string_list (EnchantDict * dict, char **string_list);
+ 
+ /**
+@@ -287,6 +313,7 @@
+  * WARNING: error is transient. It will likely be cleared as soon as
+  * the next dictionary operation is called.
+  */
++ENCHANT_API
+ const char *enchant_dict_get_error (EnchantDict * dict);
+ 
+ /**
+@@ -301,6 +328,7 @@
+  * Note that for some back-ends the result may be a guess, in which case it
+  * may include characters not actually allowed in the given dictionary.
+  */
++ENCHANT_API
+ const char *enchant_dict_get_extra_word_characters (EnchantDict * dict);
+ 
+ /**
+@@ -330,6 +358,7 @@
+  *
+  * If @n is not 0, 1 or 2, then 0 is returned.
+  */
++ENCHANT_API
+ int enchant_dict_is_word_character (EnchantDict * dict, uint32_t uc, size_t n);
+ 
+ /**
+@@ -357,6 +386,7 @@
+  *
+  * Describes a dictionary.
+  */
++ENCHANT_API
+ void enchant_dict_describe (EnchantDict * dict,
+ 			    EnchantDictDescribeFn fn,
+ 			    void * user_data);
+@@ -370,6 +400,7 @@
+  * Enumerates the dictionaries available from all Enchant providers.
+  * If a provider returns erroneous data, it will be skipped.
+  */
++ENCHANT_API
+ void enchant_broker_list_dicts (EnchantBroker * broker,
+ 				EnchantDictDescribeFn fn,
+ 				void * user_data);
+@@ -380,6 +411,7 @@
+  * Sets the prefix dir. This overrides any auto-detected value, and can also
+  * be used on systems or installations where auto-detection does not work.
+  */
++ENCHANT_API
+ void enchant_set_prefix_dir(const char *);
+ 
+ #ifdef __cplusplus
+--- a/lib/enchant-provider.h	2026-07-05 01:18:23.000000000 +0800
++++ b/lib/enchant-provider.h	2026-07-14 15:09:17.314960300 +0800
+@@ -51,6 +51,7 @@
+  *
+  * The returned string should be free'd with free.
+  */
++ENCHANT_API
+ char *enchant_get_user_language(void);
+ 
+ /**
+@@ -64,6 +65,7 @@
+  *
+  * The returned string must be g_free'd.
+  */
++ENCHANT_API
+ char *enchant_get_user_config_dir (void);
+ 
+ /**
+@@ -74,6 +76,7 @@
+  *
+  * The return value must be g_free'd.
+  */
++ENCHANT_API
+ char *enchant_provider_get_user_dict_dir (EnchantProvider * provider);
+ 
+ /**
+@@ -89,6 +92,7 @@
+  *  + The user configuration directory, as returned by
+  *     enchant_get_user_config_dir(), if it exists.
+  */
++ENCHANT_API
+ GSList *enchant_get_conf_dirs (void);
+ 
+ /**
+@@ -99,6 +103,7 @@
+  *
+  * The return value must be free'd.
+  */
++ENCHANT_API
+ char *enchant_relocate (const char *path);
+ 
+ /**
+@@ -109,6 +114,7 @@
+  *
+  * Returns a new EnchantProviderDict.
+  */
++ENCHANT_API
+ EnchantProviderDict *enchant_provider_dict_new (EnchantProvider *provider, const char *tag);
+ 
+ /**
+@@ -119,6 +125,7 @@
+  * Sets the current runtime error to @err. This API is private to the
+  * providers, and only used for testing.
+  */
++ENCHANT_API
+ void enchant_dict_set_error (EnchantDict * dict, const char * const err);
+ 
+ /**
+@@ -128,6 +135,7 @@
+  *
+  * Sets the current runtime error to @err.
+  */
++ENCHANT_API
+ void enchant_provider_dict_set_error (EnchantProviderDict * dict, const char * const err);
+ 
+ /**
+@@ -135,6 +143,7 @@
+  *
+  * Returns a new EnchantProvider.
+  */
++ENCHANT_API
+ EnchantProvider *enchant_provider_new (void);
+ 
+ /**
+@@ -145,6 +154,7 @@
+  * Sets the current runtime error to @err. This API is private to the
+  * providers.
+  */
++ENCHANT_API
+ void enchant_provider_set_error (EnchantProvider * provider, const char * const err);
+ 
+ typedef struct _EnchantProviderDictPrivate *EnchantProviderDictPrivate;
