@@ -7,7 +7,7 @@
 #endif
 
 #ifdef _WIN64
-# ifndef _M_ARM64
+# ifdef _M_ARM64
 #  define GETTEXT_PLAT "arm64"
 # else
 #  define GETTEXT_PLAT "x64"
@@ -1384,7 +1384,7 @@
 /* #undef ICONV_FLAVOR */
 
 /* Define to the value of ${prefix}, as a string. */
-#define INSTALLPREFIX "C:/vs14.0/" GETTEXT_PLAT
+#define INSTALLPREFIX "c:/vs14.0/" GETTEXT_PLAT
 
 /* Define as the bit index in the word where to find bit 0 of the exponent of
    'long double'. */
