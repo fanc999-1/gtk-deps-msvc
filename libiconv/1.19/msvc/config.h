@@ -874,7 +874,7 @@
 #define ICONV_CONST 
 
 /* Define to the value of ${prefix}, as a string. */
-#define INSTALLPREFIX "C:/vs14.0/" ICONV_PLAT
+#define INSTALLPREFIX "c:/vs14.0/" ICONV_PLAT
 
 /* Define to 1 if 'lstat' dereferences a symlink specified with a trailing
    slash. */
